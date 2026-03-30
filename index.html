@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeBot Studio — Where Your AI Agents Live</title>
+  <meta name="description" content="WeBot Studio — Managed hosting for custom AI agents built by WeBot Agency. Your bots, always on, always working.">
+  <meta property="og:title" content="WeBot Studio — Where Your AI Agents Live">
+  <meta property="og:description" content="Managed AI agent hosting. Custom bots built by WeBot Agency, running 24/7 for your business.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webot.studio">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a14;
+      --surface: #111120;
+      --card: #1a1a2e;
+      --blue: #5b7fff;
+      --blue-dim: #5b7fff22;
+      --purple: #a78bfa;
+      --purple-dim: #a78bfa22;
+      --teal: #2dd4bf;
+      --teal-dim: #2dd4bf22;
+      --gold: #ffd369;
+      --text: #e8e8f0;
+      --text-dim: #8888aa;
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(ellipse at 30% 30%, rgba(45,212,191,0.04) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 70%, rgba(91,127,255,0.03) 0%, transparent 50%);
+      z-index: -1;
+    }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Nav */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .logo { display: flex; align-items: baseline; gap: 2px; }
+    .logo .w { font-size: 22px; font-weight: 800; color: var(--blue); }
+    .logo .b { font-size: 22px; font-weight: 800; color: var(--purple); }
+    .logo .studio { font-size: 12px; font-weight: 700; color: var(--teal); margin-left: 6px; padding: 2px 8px; border-radius: 6px; background: var(--teal-dim); }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a { color: var(--text-dim); font-size: 13px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--teal); color: var(--bg) !important; padding: 8px 18px; border-radius: 8px; font-weight: 700; font-size: 13px; }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* Hero */
+    .hero { padding: 80px 0 50px; text-align: center; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 20px;
+      background: var(--teal-dim); color: var(--teal); font-size: 12px; font-weight: 700; margin-bottom: 20px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .hero-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .hero h1 { font-size: clamp(30px, 5vw, 52px); font-weight: 800; line-height: 1.15; margin-bottom: 16px; letter-spacing: -1px; }
+    .hero h1 .accent { color: var(--teal); }
+    .hero p { font-size: 16px; color: var(--text-dim); max-width: 540px; margin: 0 auto 32px; }
+    .btn { display: inline-block; padding: 12px 28px; border-radius: 10px; font-weight: 700; font-size: 14px; transition: all 0.2s; }
+    .btn-teal { background: var(--teal); color: var(--bg); }
+    .btn-teal:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-ghost { border: 1px solid var(--card); color: var(--text-dim); padding: 12px 28px; border-radius: 10px; font-size: 14px; font-weight: 500; margin-left: 12px; display: inline-block; }
+    .btn-ghost:hover { border-color: var(--text-dim); color: var(--text); }
+
+    /* Section */
+    .section { padding: 50px 0; }
+    .section-header { text-align: center; margin-bottom: 36px; }
+    .section-label { color: var(--teal); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
+    .section-title { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+    .section-sub { color: var(--text-dim); font-size: 14px; max-width: 480px; margin: 0 auto; }
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent); }
+
+    /* How it works */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .step {
+      background: var(--surface); border: 1px solid var(--card); border-radius: var(--radius);
+      padding: 28px 24px; text-align: center; transition: all 0.3s;
+    }
+    .step:hover { border-color: var(--teal); transform: translateY(-3px); }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 50%; background: var(--teal-dim); color: var(--teal);
+      font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+    }
+    .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .step p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+    /* Features */
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .feature-card {
+      background: var(--surface); border: 1px solid var(--card); border-radius: var(--radius);
+      padding: 24px; transition: all 0.3s;
+    }
+    .feature-card:hover { border-color: var(--teal); transform: translateY(-3px); }
+    .feature-icon { font-size: 24px; margin-bottom: 10px; }
+    .feature-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .feature-card p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+    /* Pricing */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 860px; margin: 0 auto; }
+    .price-card {
+      background: var(--surface); border: 1px solid var(--card); border-radius: var(--radius);
+      padding: 32px 24px; text-align: center; transition: all 0.3s;
+    }
+    .price-card:hover { transform: translateY(-3px); }
+    .price-card.featured { border-color: var(--teal); }
+    .price-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .price-card .price { font-size: 36px; font-weight: 800; color: var(--teal); margin: 12px 0; }
+    .price-card .price span { font-size: 14px; font-weight: 400; color: var(--text-dim); }
+    .price-card .desc { font-size: 13px; color: var(--text-dim); margin-bottom: 16px; }
+    .price-features { list-style: none; text-align: left; margin-bottom: 20px; }
+    .price-features li { font-size: 12px; padding: 4px 0; }
+    .price-features li::before { content: '✓ '; color: var(--teal); font-weight: 700; }
+
+    /* CTA */
+    .cta-box {
+      background: linear-gradient(135deg, var(--surface), var(--card));
+      border: 1px solid var(--teal); border-radius: var(--radius);
+      padding: 44px 32px; text-align: center; max-width: 650px; margin: 0 auto;
+    }
+    .cta-box h2 { font-size: 24px; font-weight: 800; color: var(--teal); margin-bottom: 10px; }
+    .cta-box p { font-size: 14px; color: var(--text-dim); margin-bottom: 20px; line-height: 1.7; }
+
+    /* Footer */
+    footer { padding: 32px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.04); margin-top: 40px; }
+    footer p { font-size: 12px; color: var(--text-dim); }
+    footer a { color: var(--blue); }
+
+    @media (max-width: 600px) {
+      .hero { padding: 50px 0 30px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <nav>
+      <a href="/" class="logo"><span class="w">WeBot</span><span class="b">Agency</span><span class="studio">STUDIO</span></a>
+      <div class="nav-links">
+        <a href="#how">How It Works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://webot.agency">Agency</a>
+        <a href="mailto:ian@webot.agency?subject=WeBot Studio Inquiry" class="nav-cta">Get Started</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-tag"><span class="dot"></span> Managed AI Agent Hosting</div>
+      <h1>Where Your <span class="accent">AI Agents Live</span></h1>
+      <p>WeBot Studio is the managed hosting platform for custom AI agents built by WeBot Agency. Your bots run 24/7, monitored, maintained, and always on — so you don't have to think about servers.</p>
+      <a href="mailto:ian@webot.agency?subject=WeBot Studio — I need a bot" class="btn btn-teal">Build My Bot</a>
+      <a href="https://webot.agency" class="btn-ghost">Learn About WeBot →</a>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <div class="section-header">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">From Idea to Always-On</h2>
+        <p class="section-sub">Three steps. No DevOps. No servers to manage.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Tell Us What You Need</h3>
+          <p>Customer service bot? Email automation? Data pipeline? Internal assistant? Tell us the workflow and we design the agent.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>We Build & Test It</h3>
+          <p>Our engineers build your custom AI agent, test it thoroughly, and deploy it to WeBot Studio — our managed infrastructure.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>It Runs. You Work.</h3>
+          <p>Your agent runs 24/7 on Studio. We handle uptime, monitoring, updates, and scaling. You focus on your business.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+      <div class="section-header">
+        <div class="section-label">Platform</div>
+        <h2 class="section-title">Built for Business-Critical AI</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Always On</h3>
+          <p>Your agents run 24/7 with 99.9% uptime. No sleeping, no cold starts, no "the server is down."</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Secure & Isolated</h3>
+          <p>Each client gets isolated infrastructure. Your data never touches another client's environment.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Monitoring & Logs</h3>
+          <p>Real-time dashboards showing agent activity, errors, performance, and usage. Know exactly what your bot is doing.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3>Managed Updates</h3>
+          <p>We maintain your agent — bug fixes, model upgrades, feature additions. No maintenance contracts or surprise bills.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3>API & Integrations</h3>
+          <p>Connect your agent to Slack, email, CRM, databases, APIs, webhooks — whatever your workflow needs.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>Scales With You</h3>
+          <p>Start with one agent. Add more as you grow. Studio handles the infrastructure so you never hit a ceiling.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PRICING -->
+    <section class="section" id="pricing">
+      <div class="section-header">
+        <div class="section-label">Pricing</div>
+        <h2 class="section-title">Simple. No Surprises.</h2>
+        <p class="section-sub">Build fee + monthly hosting. That's it.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Starter</h3>
+          <div class="price">$99<span>/mo</span></div>
+          <div class="desc">One agent, essential capabilities</div>
+          <ul class="price-features">
+            <li>1 custom AI agent</li>
+            <li>24/7 hosting & monitoring</li>
+            <li>Email + webhook integrations</li>
+            <li>Basic dashboard</li>
+            <li>Email support</li>
+          </ul>
+          <a href="mailto:ian@webot.agency?subject=Studio Starter" class="btn btn-teal" style="width:100%;text-align:center">Get Started</a>
+        </div>
+        <div class="price-card featured">
+          <h3>Professional</h3>
+          <div class="price">$249<span>/mo</span></div>
+          <div class="desc">Multiple agents, full integrations</div>
+          <ul class="price-features">
+            <li>Up to 3 AI agents</li>
+            <li>24/7 hosting & monitoring</li>
+            <li>All integrations (Slack, CRM, API)</li>
+            <li>Advanced dashboard + analytics</li>
+            <li>Priority support</li>
+            <li>Monthly optimization reviews</li>
+          </ul>
+          <a href="mailto:ian@webot.agency?subject=Studio Professional" class="btn btn-teal" style="width:100%;text-align:center">Get Started</a>
+        </div>
+        <div class="price-card">
+          <h3>Enterprise</h3>
+          <div class="price" style="font-size:28px">Custom</div>
+          <div class="desc">Unlimited agents, dedicated infrastructure</div>
+          <ul class="price-features">
+            <li>Unlimited AI agents</li>
+            <li>Dedicated infrastructure</li>
+            <li>Custom integrations & workflows</li>
+            <li>SLA guarantee</li>
+            <li>Dedicated account manager</li>
+            <li>On-call support</li>
+          </ul>
+          <a href="mailto:ian@webot.agency?subject=Studio Enterprise" class="btn btn-teal" style="width:100%;text-align:center">Contact Us</a>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:12px;color:var(--text-dim);margin-top:20px">Custom build fee quoted per project. Hosting starts after deployment.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="cta-box">
+        <h2>Ready to Put AI to Work?</h2>
+        <p>Tell us what your business needs automated. We'll design, build, and host the agent — you just use it.</p>
+        <a href="mailto:ian@webot.agency?subject=I need a custom AI agent" class="btn btn-teal">Let's Build Something</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 <a href="https://webot.agency">WeBot Agency</a> · <a href="https://webot.buzz">Buzz</a> · An F5 Company · We Bot You!</p>
+    </footer>
+
+  </div>
+</body>
+</html>
