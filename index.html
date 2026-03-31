@@ -53,6 +53,8 @@
     .nav-links a:hover { color: var(--text); }
     .nav-cta { background: var(--teal); color: var(--bg) !important; padding: 8px 18px; border-radius: 8px; font-weight: 700; font-size: 13px; }
     .nav-cta:hover { opacity: 0.9; }
+    .nav-toggle { display: none; background: none; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; cursor: pointer; width: 44px; height: 44px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 0; z-index: 101; }
+    .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
 
     /* Hero */
     .hero { padding: 80px 0 50px; text-align: center; }
@@ -136,20 +138,35 @@
     footer p { font-size: 12px; color: var(--text-dim); }
     footer a { color: var(--blue); }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; position: absolute;
+        top: calc(100% + 8px); left: 12px; right: 12px;
+        background: rgba(10,10,20,0.98); border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px; box-shadow: 0 18px 50px rgba(0,0,0,0.5);
+        padding: 12px; gap: 4px; z-index: 200;
+      }
+      .nav-links.open a { display: block; width: 100%; padding: 14px 12px; font-size: 16px; border-radius: 12px; }
+      .nav-links.open a:hover { background: rgba(45,212,191,0.1); }
+      .nav-links.open .nav-cta { margin-top: 4px; padding: 16px 18px; text-align: center; }
+      .nav-toggle { display: flex; }
       .hero { padding: 50px 0 30px; }
-      .nav-links a:not(.nav-cta) { display: none; }
+      .pricing-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <nav>
+  <nav id="nav">
       <a href="/" class="logo"><span class="w">WeBot</span><span class="b">Agency</span><span class="studio">STUDIO</span></a>
-      <div class="nav-links">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="navLinks">
         <a href="#how">How It Works</a>
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
         <a href="https://webot.agency">Agency</a>
+        <a href="https://webot.buzz">Buzz</a>
         <a href="mailto:ian@webot.agency?subject=WeBot Studio Inquiry" class="nav-cta">Get Started</a>
       </div>
   </nav>
@@ -305,5 +322,16 @@
     </footer>
 
   </div>
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const nav = document.getElementById('nav');
+    const closeMenu = () => { navLinks.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); };
+    const openMenu = () => { navLinks.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); };
+    toggle.addEventListener('click', () => { navLinks.classList.contains('open') ? closeMenu() : openMenu(); });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('click', e => { if (!nav.contains(e.target) && navLinks.classList.contains('open')) closeMenu(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+  </script>
 </body>
 </html>
