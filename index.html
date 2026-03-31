@@ -43,13 +43,13 @@
     a { text-decoration: none; color: inherit; }
 
     /* Nav */
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,20,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); display: flex; justify-content: space-between; align-items: center; padding: 0 32px; height: 64px; border-bottom: 1px solid rgba(255,255,255,0.04); }
     .logo { display: flex; align-items: baseline; gap: 2px; }
     .logo .w { font-size: 22px; font-weight: 800; color: var(--blue); }
     .logo .b { font-size: 22px; font-weight: 800; color: var(--purple); }
     .logo .studio { font-size: 12px; font-weight: 700; color: var(--teal); margin-left: 6px; padding: 2px 8px; border-radius: 6px; background: var(--teal-dim); }
-    .nav-links { display: flex; gap: 20px; align-items: center; }
-    .nav-links a { color: var(--text-dim); font-size: 13px; font-weight: 500; transition: color 0.2s; }
+    .nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+    .nav-links a { color: var(--text-dim); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-cta { background: var(--teal); color: var(--bg) !important; padding: 8px 18px; border-radius: 8px; font-weight: 700; font-size: 13px; }
     .nav-cta:hover { opacity: 0.9; }
@@ -143,9 +143,7 @@
   </style>
 </head>
 <body>
-  <div class="container">
-
-    <nav>
+  <nav>
       <a href="/" class="logo"><span class="w">WeBot</span><span class="b">Agency</span><span class="studio">STUDIO</span></a>
       <div class="nav-links">
         <a href="#how">How It Works</a>
@@ -154,7 +152,8 @@
         <a href="https://webot.agency">Agency</a>
         <a href="mailto:ian@webot.agency?subject=WeBot Studio Inquiry" class="nav-cta">Get Started</a>
       </div>
-    </nav>
+  </nav>
+  <div class="container">
 
     <!-- HERO -->
     <section class="hero">
