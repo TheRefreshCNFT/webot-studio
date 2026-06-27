@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <title>WeBot Studio - Pick an Agent, Watch the Work Move</title>
-  <meta name="description" content="WeBot Studio helps customers choose a WeBot agent, select access, complete plan setup, and follow reviewed work through a clear customer dashboard.">
+  <meta name="description" content="WeBot Studio helps customers choose a WeBot agent, select access or job credits, pay through Stripe Checkout, and follow reviewed work through a clear customer dashboard.">
   <meta property="og:title" content="WeBot Studio - We Bot You">
   <meta property="og:description" content="Choose an agent family, pick access, open intake, and watch a read-only project board move toward reviewed delivery.">
   <meta property="og:type" content="website">
@@ -1572,7 +1572,7 @@
         <div class="hero-copy">
           <p class="eyebrow">WeBot Studio</p>
           <h1><span>Pick an agent.</span> <span>Watch the work</span> <span>move.</span></h1>
-          <p class="lead">Sign in, choose the agent family for the job, pick access, complete plan setup, and land in a calm dashboard that shows real customer-facing checkpoints.</p>
+          <p class="lead">Choose the agent family for the job, pick monthly access or job credits, pay through Stripe Checkout, and land in a calm dashboard that shows customer-facing checkpoints.</p>
           <div class="hero-actions">
             <a class="btn primary" href="#agents">Choose Your Agent</a>
             <a class="btn secondary" href="#dashboard">See Dashboard</a>
@@ -1585,7 +1585,7 @@
           </div>
         </div>
 
-        <div class="app-shell" aria-label="Signup and login entry">
+        <div class="app-shell" aria-label="Studio request entry">
           <div class="app-top">
             <span class="window-dots" aria-hidden="true"><span>&#8203;</span><span>&#8203;</span><span>&#8203;</span></span>
             <span class="app-title">webot.studio / entry</span>
@@ -1593,8 +1593,8 @@
           <div class="auth-panel">
             <div class="auth-card form-card">
               <div class="auth-tabs" role="tablist" aria-label="Entry mode">
-                <button class="tab auth-tab active" type="button">Sign up</button>
-                <button class="tab auth-tab" type="button">Log in</button>
+                <button class="tab auth-tab active" type="button">New request</button>
+                <button class="tab auth-tab" type="button">Returning</button>
               </div>
               <div class="field-stack">
                 <label>
@@ -1605,9 +1605,9 @@
                   Project name
                   <input type="text" value="June launch help" aria-label="Project name field">
                 </label>
-                <button class="btn primary" type="button">Continue to agent choice</button>
+                <a class="btn primary" href="#agents">Continue to agent choice</a>
               </div>
-              <p class="form-note">Account access is enabled during onboarding. Use Contact Us if you need help getting started today.</p>
+              <p class="form-note">Stripe checkout and human intake handle the next step.</p>
             </div>
             <div class="mini-panel listener-card">
               <span class="status-pill">Listener ready</span>
@@ -1627,7 +1627,7 @@
             <h2>Start with the kind of work.</h2>
             <p class="section-copy">Each family routes to focused helpers, a lead review pass, and a customer review step before final delivery. Higher access buys capacity, priority, complexity, and convenience, not lower or higher care.</p>
           </div>
-          <p class="soft-note">Select a family to update your Studio path. Full account routing is connected during onboarding.</p>
+          <p class="soft-note">Select a family to update your Studio path. Full workflow routing begins after checkout or contact.</p>
         </div>
 
         <div class="agent-grid" role="list" aria-label="Agent families">
@@ -1683,20 +1683,20 @@
         <div class="section-head">
           <div>
             <p class="section-kicker">Plans and access</p>
-            <h2>Choose access, then confirm payment.</h2>
-            <p class="section-copy">Secure checkout links are added during plan setup. Approved links return customers to the payment-confirmed Studio state and open the first project intake.</p>
+            <h2>Choose access, then pay securely.</h2>
+            <p class="section-copy">Pick a monthly plan for recurring work, or buy job credits for scoped one-off help. The selected checkout button opens Stripe.</p>
           </div>
-          <p class="soft-note">All tiers get premier-quality output and lead review. Larger tiers increase included runs, active projects, file size, priority, and onboarding help.</p>
+          <p class="soft-note">All paid work gets lead review before delivery. Larger plans and deeper credit packs increase capacity, complexity, priority, and setup help.</p>
         </div>
 
         <div class="flow-grid">
           <div class="plan-list" aria-label="Access choices">
-            <article class="plan-card is-selected" data-plan="Starter" data-price="Checkout added during onboarding" data-capacity="1 active project, focused monthly runs">
+            <article class="plan-card is-selected" data-plan="Starter" data-price="$49/mo" data-capacity="1 active project, focused monthly runs" data-product="studio-starter" data-checkout="https://buy.stripe.com/fZu00i2MD3lO9n79b92880D">
               <div class="price-row">
                 <h3>Starter</h3>
-                <span class="price">Access <small>setup</small></span>
+                <span class="price">$49 <small>/mo</small></span>
               </div>
-              <p>For one focused project at a time with reviewed delivery and simple handoff.</p>
+              <p>For one focused monthly project path with reviewed delivery and simple handoff.</p>
               <ul>
                 <li>1 active project</li>
                 <li>1 agent family at a time</li>
@@ -1705,10 +1705,10 @@
               <button class="card-action plan-select" type="button" aria-pressed="true">Select Starter</button>
             </article>
 
-            <article class="plan-card" data-plan="Plus" data-price="Checkout added during onboarding" data-capacity="More runs, larger files, priority review">
+            <article class="plan-card" data-plan="Plus" data-price="$149/mo" data-capacity="More runs, larger files, priority review" data-product="studio-plus" data-checkout="https://buy.stripe.com/aFa7sK3QHbSkbvf3QP2880E">
               <div class="price-row">
                 <h3>Plus</h3>
-                <span class="price">Access <small>setup</small></span>
+                <span class="price">$149 <small>/mo</small></span>
               </div>
               <p>For recurring personal or business work with more capacity and faster review priority.</p>
               <ul>
@@ -1719,21 +1719,63 @@
               <button class="card-action plan-select" type="button" aria-pressed="false">Select Plus</button>
             </article>
 
-            <article class="plan-card" data-plan="Studio" data-price="Checkout added during onboarding" data-capacity="Concurrent projects, dashboard history, onboarding">
+            <article class="plan-card" data-plan="Business" data-price="$399/mo" data-capacity="Concurrent projects, dashboard history, active-job setup" data-product="studio-business" data-checkout="https://buy.stripe.com/9B614m72T6y07eZdrp2880F">
               <div class="price-row">
-                <h3>Studio</h3>
-                <span class="price">Access <small>setup</small></span>
+                <h3>Business</h3>
+                <span class="price">$399 <small>/mo</small></span>
               </div>
-              <p>For teams that need multiple projects moving with cleaner onboarding and custom workflows.</p>
+              <p>For teams that need multiple projects moving with cleaner setup and custom workflows.</p>
               <ul>
                 <li>Multiple concurrent projects</li>
                 <li>Workflow setup support</li>
-                <li>Business onboarding path</li>
+                <li>Business setup path</li>
               </ul>
-              <button class="card-action plan-select" type="button" aria-pressed="false">Select Studio</button>
+              <button class="card-action plan-select" type="button" aria-pressed="false">Select Business</button>
             </article>
 
-            <article class="plan-card" data-plan="Custom" data-price="Contact Us" data-capacity="Dedicated setup, connectors, special workspace needs">
+            <article class="plan-card" data-plan="Small Job Credit" data-price="$49" data-capacity="One small scoped job" data-product="studio-credit-quick" data-checkout="https://buy.stripe.com/eVqdR8gDt6y0arb1IH2880G">
+              <div class="price-row">
+                <h3>Small Job Credit</h3>
+                <span class="price">$49</span>
+              </div>
+              <p>For a quick, clearly scoped request such as cleanup, copy polish, or a short research pull.</p>
+              <ul>
+                <li>One small job credit</li>
+                <li>Best for crisp instructions</li>
+                <li>Reviewed handoff included</li>
+              </ul>
+              <button class="card-action plan-select" type="button" aria-pressed="false">Select Small Credit</button>
+            </article>
+
+            <article class="plan-card" data-plan="Standard Job Credit Pack" data-price="$129" data-capacity="Standard scoped job pack" data-product="studio-credit-standard" data-checkout="https://buy.stripe.com/9B6fZg1IzaOgczj1IH2880H">
+              <div class="price-row">
+                <h3>Standard Job Credit Pack</h3>
+                <span class="price">$129</span>
+              </div>
+              <p>For a fuller deliverable with more source material, formatting, or a modest revision loop.</p>
+              <ul>
+                <li>Standard job credit pack</li>
+                <li>Good for multi-step tasks</li>
+                <li>Priority scoping after intake</li>
+              </ul>
+              <button class="card-action plan-select" type="button" aria-pressed="false">Select Standard Pack</button>
+            </article>
+
+            <article class="plan-card" data-plan="Deep Job Credit Pack" data-price="$299" data-capacity="Deep scoped job pack" data-product="studio-credit-deep" data-checkout="https://buy.stripe.com/28E28q2MDaOg7eZ8752880I">
+              <div class="price-row">
+                <h3>Deep Job Credit Pack</h3>
+                <span class="price">$299</span>
+              </div>
+              <p>For deeper research, heavier cleanup, more complex build help, or larger reviewed output.</p>
+              <ul>
+                <li>Deep job credit pack</li>
+                <li>Best for complex requests</li>
+                <li>Human scoping included</li>
+              </ul>
+              <button class="card-action plan-select" type="button" aria-pressed="false">Select Deep Pack</button>
+            </article>
+
+            <article class="plan-card" data-plan="Custom" data-price="Contact Us" data-capacity="Dedicated setup, connectors, special workspace needs" data-product="custom" data-checkout="mailto:ian@webot.agency?subject=WeBot%20Studio%20Custom%20Access">
               <div class="price-row">
                 <h3>Custom</h3>
                 <span class="price">Contact <small>required</small></span>
@@ -1770,23 +1812,23 @@
             </article>
 
             <article class="preview-card payment-box">
-              <span class="tag">Checkout setup</span>
-              <h3>Secure checkout is connected during plan setup.</h3>
-              <p>Approved checkout links are added during onboarding and return customers to Studio once payment is confirmed. Custom access starts through Contact Us.</p>
+              <span class="tag">Checkout</span>
+              <h3>Pay securely with Stripe.</h3>
+              <p>Choose a product, then use the checkout button below. Custom work stays on a contact path so scope, timing, and storage rules are clear first.</p>
               <div class="checkout-line">
-                <strong id="paymentLabel">Starter - checkout added during onboarding</strong>
-                <span>Ready for approved Stripe URL insertion</span>
+                <strong id="paymentLabel">Starter - $49/mo</strong>
+                <span id="paymentDetail">1 active project, focused monthly runs</span>
               </div>
               <div class="button-row" style="margin-top: 12px;">
-                <button class="btn primary" type="button" id="confirmPayment">Continue to intake</button>
+                <a class="btn primary" id="checkoutButton" href="https://buy.stripe.com/fZu00i2MD3lO9n79b92880D">Pay with Stripe</a>
                 <a class="btn" href="mailto:ian@webot.agency?subject=WeBot%20Studio%20Custom%20Access">Contact Us</a>
               </div>
             </article>
 
             <article class="preview-card" id="confirmedCard">
-              <span class="tag">Confirmed state</span>
-              <h3 id="confirmedTitle">Payment-confirmed Studio state</h3>
-              <p id="confirmedText">After approved payment confirmation, Studio opens your first project intake and keeps the work visible in a read-only dashboard.</p>
+              <span class="tag">Status</span>
+              <h3 id="confirmedTitle">No payment status yet</h3>
+              <p id="confirmedText">After Stripe sends you back with a payment status, this page will show the return state here. Until then, choose a product and continue through checkout.</p>
             </article>
           </div>
         </div>
@@ -1814,7 +1856,7 @@
               </label>
               <label>
                 Context for the agent
-                <textarea aria-label="Job context">Paste instructions, links, notes, or file descriptions here. File handling is enabled during onboarding for approved customer jobs.</textarea>
+                <textarea aria-label="Job context">Paste instructions, links, notes, or file descriptions here. File handling is enabled during active, approved customer jobs.</textarea>
               </label>
               <label>
                 Delivery type
@@ -1980,9 +2022,10 @@
     const buildTitle = document.getElementById("buildTitle");
     const buildText = document.getElementById("buildText");
     const paymentLabel = document.getElementById("paymentLabel");
+    const paymentDetail = document.getElementById("paymentDetail");
     const confirmedTitle = document.getElementById("confirmedTitle");
     const confirmedText = document.getElementById("confirmedText");
-    const confirmPayment = document.getElementById("confirmPayment");
+    const checkoutButton = document.getElementById("checkoutButton");
     const dashboardMeta = document.getElementById("dashboardMeta");
     const routeCard = document.getElementById("routeCard");
     const workCard = document.getElementById("workCard");
@@ -1996,8 +2039,10 @@
 
     let selectedPlan = {
       plan: "Starter",
-      price: "Checkout added during onboarding",
-      capacity: "1 active project, focused monthly runs"
+      price: "$49/mo",
+      capacity: "1 active project, focused monthly runs",
+      product: "studio-starter",
+      checkout: "https://buy.stripe.com/fZu00i2MD3lO9n79b92880D"
     };
 
     function closeMenu() {
@@ -2011,10 +2056,78 @@
       buildTitle.textContent = `${selectedAgent.family} project`;
       buildText.textContent = `${selectedAgent.persona} will prepare: ${selectedAgent.deliverable}.`;
       paymentLabel.textContent = `${selectedPlan.plan} - ${selectedPlan.price}`;
+      paymentDetail.textContent = selectedPlan.capacity;
+      checkoutButton.href = selectedPlan.checkout;
+      if (selectedPlan.checkout.startsWith("mailto:")) {
+        checkoutButton.textContent = "Contact Us";
+        checkoutButton.removeAttribute("target");
+        checkoutButton.removeAttribute("rel");
+      } else {
+        checkoutButton.textContent = "Pay with Stripe";
+        checkoutButton.removeAttribute("target");
+        checkoutButton.setAttribute("rel", "noopener");
+      }
       dashboardMeta.textContent = `${selectedAgent.family} - ${selectedPlan.plan} - next update after lead review`;
       routeCard.textContent = `${selectedAgent.persona} assigned.`;
       workCard.textContent = `Preparing: ${selectedAgent.deliverable}.`;
       deliverableCard.textContent = `${selectedAgent.deliverable}.`;
+    }
+
+    function normalizeProduct(value) {
+      return String(value || "")
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+    }
+
+    function setSelectedPlan(card) {
+      const button = card.querySelector(".plan-select");
+      planCards.forEach((item) => item.classList.remove("is-selected"));
+      planButtons.forEach((item) => item.setAttribute("aria-pressed", "false"));
+      card.classList.add("is-selected");
+      if (button) {
+        button.setAttribute("aria-pressed", "true");
+      }
+      selectedPlan = {
+        plan: card.dataset.plan,
+        price: card.dataset.price,
+        capacity: card.dataset.capacity,
+        product: card.dataset.product,
+        checkout: card.dataset.checkout
+      };
+      updatePreview();
+    }
+
+    function findPlanCard(product) {
+      const normalized = normalizeProduct(product);
+      return planCards.find((card) => {
+        return normalizeProduct(card.dataset.product) === normalized || normalizeProduct(card.dataset.plan) === normalized;
+      });
+    }
+
+    function applyPaymentReturn() {
+      const params = new URLSearchParams(window.location.search);
+      const payment = params.get("payment");
+      const product = params.get("product");
+      const returnedCard = findPlanCard(product);
+
+      if (returnedCard) {
+        setSelectedPlan(returnedCard);
+      }
+
+      if (payment === "confirmed") {
+        confirmedTitle.textContent = "Payment return: confirmed";
+        confirmedText.textContent = `This return link says ${selectedPlan.plan} checkout was confirmed. Complete the intake below so we can scope the job, confirm the right agent path, and start the reviewed work.`;
+        window.setTimeout(() => {
+          document.getElementById("intake").scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 120);
+      }
+
+      if (payment === "cancelled") {
+        confirmedTitle.textContent = "Checkout cancelled";
+        confirmedText.textContent = `${selectedPlan.plan} checkout was cancelled or not completed. No paid Studio intake is started from this page; you can choose another product or open Stripe again when ready.`;
+      }
     }
 
     navToggle.addEventListener("click", () => {
@@ -2057,24 +2170,11 @@
     planButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const card = button.closest(".plan-card");
-        planCards.forEach((item) => item.classList.remove("is-selected"));
-        planButtons.forEach((item) => item.setAttribute("aria-pressed", "false"));
-        card.classList.add("is-selected");
-        button.setAttribute("aria-pressed", "true");
-        selectedPlan = {
-          plan: card.dataset.plan,
-          price: card.dataset.price,
-          capacity: card.dataset.capacity
-        };
-        updatePreview();
+        setSelectedPlan(card);
       });
     });
 
-    confirmPayment.addEventListener("click", () => {
-      confirmedTitle.textContent = "Payment-confirmed Studio state";
-      confirmedText.textContent = `${selectedPlan.plan} access continues into intake after approved checkout is connected. Studio opens intake for ${selectedAgent.family} and posts read-only dashboard checkpoints.`;
-      document.getElementById("intake").scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+    applyPaymentReturn();
   </script>
 </body>
 </html>
