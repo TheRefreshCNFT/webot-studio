@@ -6,332 +6,2075 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <title>WeBot Studio - Where Your AI Agents Live</title>
-  <meta name="description" content="WeBot Studio - Managed hosting for custom AI agents built by WeBot Agency. Your bots, always on, always working.">
-  <meta property="og:title" content="WeBot Studio - Where Your AI Agents Live">
-  <meta property="og:description" content="Managed AI agent hosting. Custom bots built by WeBot Agency, running 24/7 for your business.">
+  <title>WeBot Studio - Pick an Agent, Watch the Work Move</title>
+  <meta name="description" content="WeBot Studio helps customers choose a WeBot agent, select access, complete plan setup, and follow reviewed work through a clear customer dashboard.">
+  <meta property="og:title" content="WeBot Studio - We Bot You">
+  <meta property="og:description" content="Choose an agent family, pick access, open intake, and watch a read-only project board move toward reviewed delivery.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://webot.studio">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a14;
-      --surface: #111120;
-      --card: #1a1a2e;
-      --blue: #5b7fff;
-      --blue-dim: #5b7fff22;
-      --purple: #a78bfa;
-      --purple-dim: #a78bfa22;
-      --teal: #2dd4bf;
-      --teal-dim: #2dd4bf22;
-      --gold: #ffd369;
-      --text: #e8e8f0;
-      --text-dim: #8888aa;
-      --radius: 16px;
+      --bg: #090b10;
+      --panel: #10141b;
+      --panel-2: #151b24;
+      --panel-3: #1b2230;
+      --line: rgba(255, 255, 255, 0.1);
+      --line-strong: rgba(255, 255, 255, 0.18);
+      --text: #f2f5f7;
+      --muted: #a5b0bd;
+      --muted-2: #788596;
+      --teal: #32d6c2;
+      --blue: #7ea2ff;
+      --rose: #ff8aa3;
+      --gold: #ffd166;
+      --green: #7bd88f;
+      --ink: #07090d;
+      --radius: 8px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      --max: 1180px;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
-    body::before {
-      content: ''; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(ellipse at 30% 30%, rgba(45,212,191,0.04) 0%, transparent 50%),
-                  radial-gradient(ellipse at 70% 70%, rgba(91,127,255,0.03) 0%, transparent 50%);
-      z-index: -1;
+
+    * {
+      box-sizing: border-box;
     }
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
-    a { text-decoration: none; color: inherit; }
 
-    /* Nav */
-    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,20,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); display: flex; justify-content: space-between; align-items: center; padding: 0 32px; height: 64px; border-bottom: 1px solid rgba(255,255,255,0.04); }
-    .logo { display: flex; align-items: baseline; gap: 2px; }
-    .logo .w { font-size: 22px; font-weight: 800; color: var(--blue); }
-    .logo .b { font-size: 22px; font-weight: 800; color: var(--purple); }
-    .logo .studio { font-size: 12px; font-weight: 700; color: var(--teal); margin-left: 6px; padding: 2px 8px; border-radius: 6px; background: var(--teal-dim); }
-    .nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
-    .nav-links a { color: var(--text-dim); font-size: 14px; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta { background: var(--teal); color: var(--bg) !important; padding: 8px 18px; border-radius: 8px; font-weight: 700; font-size: 13px; }
-    .nav-cta:hover { opacity: 0.9; }
-    .nav-toggle { display: none; background: none; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; cursor: pointer; width: 44px; height: 44px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 0; z-index: 101; }
-    .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
-
-    /* Hero */
-    .hero { padding: 80px 0 50px; text-align: center; }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 20px;
-      background: var(--teal-dim); color: var(--teal); font-size: 12px; font-weight: 700; margin-bottom: 20px;
-      text-transform: uppercase; letter-spacing: 0.5px;
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
-    .hero-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
-    .hero h1 { font-size: clamp(30px, 5vw, 52px); font-weight: 800; line-height: 1.15; margin-bottom: 16px; letter-spacing: -1px; }
-    .hero h1 .accent { color: var(--teal); }
-    .hero p { font-size: 16px; color: var(--text-dim); max-width: 540px; margin: 0 auto 32px; }
-    .btn { display: inline-block; padding: 12px 28px; border-radius: 10px; font-weight: 700; font-size: 14px; transition: all 0.2s; }
-    .btn-teal { background: var(--teal); color: var(--bg); }
-    .btn-teal:hover { opacity: 0.9; transform: translateY(-1px); }
-    .btn-ghost { border: 1px solid var(--card); color: var(--text-dim); padding: 12px 28px; border-radius: 10px; font-size: 14px; font-weight: 500; margin-left: 12px; display: inline-block; }
-    .btn-ghost:hover { border-color: var(--text-dim); color: var(--text); }
 
-    /* Section */
-    .section { padding: 50px 0; }
-    .section-header { text-align: center; margin-bottom: 36px; }
-    .section-label { color: var(--teal); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
-    .section-title { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
-    .section-sub { color: var(--text-dim); font-size: 14px; max-width: 480px; margin: 0 auto; }
-    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent); }
-
-    /* How it works */
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .step {
-      background: var(--surface); border: 1px solid var(--card); border-radius: var(--radius);
-      padding: 28px 24px; text-align: center; transition: all 0.3s;
+    body {
+      margin: 0;
+      min-width: 0;
+      overflow-x: hidden;
+      background:
+        linear-gradient(180deg, rgba(50, 214, 194, 0.08), transparent 280px),
+        linear-gradient(145deg, rgba(126, 162, 255, 0.08), transparent 360px),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
     }
-    .step:hover { border-color: var(--teal); transform: translateY(-3px); }
-    .step-num {
-      width: 40px; height: 40px; border-radius: 50%; background: var(--teal-dim); color: var(--teal);
-      font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 14px;
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
-    .step p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
 
-    /* Features */
-    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .feature-card {
-      background: var(--surface); border: 1px solid var(--card); border-radius: var(--radius);
-      padding: 24px; transition: all 0.3s;
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
     }
-    .feature-card:hover { border-color: var(--teal); transform: translateY(-3px); }
-    .feature-icon { font-size: 24px; margin-bottom: 10px; }
-    .feature-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-    .feature-card p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
 
-    /* Pricing */
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 860px; margin: 0 auto; }
-    .price-card {
-      background: var(--surface); border: 1px solid var(--card); border-radius: var(--radius);
-      padding: 32px 24px; text-align: center; transition: all 0.3s; display: flex; flex-direction: column;
+    button {
+      cursor: pointer;
     }
-    .price-card:hover { transform: translateY(-3px); }
-    .price-card.featured { border-color: var(--teal); }
-    .price-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-    .price-card .price { font-size: 36px; font-weight: 800; color: var(--teal); margin: 12px 0; }
-    .price-card .price span { font-size: 14px; font-weight: 400; color: var(--text-dim); }
-    .price-card .desc { font-size: 13px; color: var(--text-dim); margin-bottom: 16px; }
-    .price-features { list-style: none; text-align: left; margin-bottom: 20px; flex-grow: 1; }
-    .price-features li { font-size: 12px; padding: 4px 0; }
-    .price-features li::before { content: '✓ '; color: var(--teal); font-weight: 700; }
 
-    /* CTA */
-    .cta-box {
-      background: linear-gradient(135deg, var(--surface), var(--card));
-      border: 1px solid var(--teal); border-radius: var(--radius);
-      padding: 44px 32px; text-align: center; max-width: 650px; margin: 0 auto;
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
     }
-    .cta-box h2 { font-size: 24px; font-weight: 800; color: var(--teal); margin-bottom: 10px; }
-    .cta-box p { font-size: 14px; color: var(--text-dim); margin-bottom: 20px; line-height: 1.7; }
 
-    /* Footer */
-    footer { padding: 32px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.04); margin-top: 40px; }
-    footer p { font-size: 12px; color: var(--text-dim); }
-    footer a { color: var(--blue); }
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid var(--line);
+      background: rgba(9, 11, 16, 0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
 
-    @media (max-width: 768px) {
-      nav { padding: 0 16px; }
-      .nav-links { display: none; }
-      .nav-links.open {
-        display: flex; flex-direction: column; position: absolute;
-        top: calc(100% + 8px); left: 12px; right: 12px;
-        background: rgba(10,10,20,0.98); border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 16px; box-shadow: 0 18px 50px rgba(0,0,0,0.5);
-        padding: 12px; gap: 4px; z-index: 200;
+    .nav-inner {
+      width: min(var(--max), calc(100% - 32px));
+      min-height: 68px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-text {
+      display: grid;
+      line-height: 1;
+    }
+
+    .brand-wordmark {
+      display: inline-flex;
+      align-items: baseline;
+      min-width: 0;
+      color: var(--text);
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .brand-wordmark .brand-bot,
+    .brand-wordmark .brand-studio {
+      color: var(--teal);
+    }
+
+    .brand-wordmark .brand-studio {
+      margin-left: 7px;
+      font-size: 0.78em;
+      font-weight: 850;
+    }
+
+    .brand small {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .nav-links a {
+      padding: 9px 11px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+      outline: none;
+    }
+
+    .nav-cta {
+      color: var(--ink) !important;
+      background: var(--teal);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      color: var(--text);
+      background: transparent;
+    }
+
+    .nav-toggle span,
+    .nav-toggle::before,
+    .nav-toggle::after {
+      content: "";
+      display: block;
+      width: 19px;
+      height: 2px;
+      border-radius: 2px;
+      background: currentColor;
+    }
+
+    .nav-toggle {
+      gap: 4px;
+      flex-direction: column;
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    .hero {
+      padding: 54px 0 32px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 100%;
+      margin: 0 0 16px;
+      padding: 6px 10px;
+      border: 1px solid rgba(50, 214, 194, 0.32);
+      border-radius: 8px;
+      color: var(--teal);
+      background: rgba(50, 214, 194, 0.08);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      overflow-wrap: anywhere;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 12ch;
+      margin-bottom: 16px;
+      font-size: clamp(43px, 7vw, 82px);
+      line-height: 0.94;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 650px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+    }
+
+    .hero-actions,
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      max-width: 100%;
+      padding: 11px 16px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+      white-space: normal;
+    }
+
+    .btn.primary {
+      border-color: transparent;
+      background: var(--teal);
+      color: var(--ink);
+    }
+
+    .btn.secondary {
+      border-color: rgba(126, 162, 255, 0.4);
+      color: #dce5ff;
+      background: rgba(126, 162, 255, 0.1);
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.34);
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .trust-item {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 11px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.035);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .app-shell {
+      min-width: 0;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #0f131a;
+      box-shadow: var(--shadow);
+    }
+
+    .app-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      background: #151b24;
+    }
+
+    .window-dots {
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .window-dots span {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--muted-2);
+    }
+
+    .window-dots span:nth-child(1) {
+      background: var(--rose);
+    }
+
+    .window-dots span:nth-child(2) {
+      background: var(--gold);
+    }
+
+    .window-dots span:nth-child(3) {
+      background: var(--green);
+    }
+
+    .app-title {
+      min-width: 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .auth-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(210px, 0.72fr);
+      gap: 14px;
+      padding: 18px;
+    }
+
+    .auth-card,
+    .mini-panel,
+    .preview-card,
+    .agent-card,
+    .plan-card,
+    .supply-card,
+    .kanban-card {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .auth-card {
+      padding: 18px;
+    }
+
+    .auth-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 16px;
+      padding: 4px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.22);
+    }
+
+    .tab {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      border-radius: 6px;
+      padding: 9px 10px;
+      color: var(--muted);
+      background: transparent;
+      font-weight: 800;
+    }
+
+    .tab.active {
+      color: var(--ink);
+      background: var(--teal);
+    }
+
+    .field-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    label {
+      display: grid;
+      gap: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 11px 12px;
+      color: var(--text);
+      background: #0b0f15;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 94px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--teal);
+    }
+
+    .form-note {
+      margin: 11px 0 0;
+      color: var(--muted-2);
+      font-size: 12px;
+    }
+
+    .mini-panel {
+      padding: 16px;
+      align-self: stretch;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      width: fit-content;
+      max-width: 100%;
+      margin-bottom: 12px;
+      padding: 6px 9px;
+      border-radius: 8px;
+      color: var(--green);
+      background: rgba(123, 216, 143, 0.1);
+      border: 1px solid rgba(123, 216, 143, 0.24);
+      font-size: 12px;
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+
+    .status-pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .mini-panel h2,
+    .mini-panel h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .mini-panel p,
+    .preview-card p,
+    .agent-card p,
+    .plan-card p,
+    .supply-card p,
+    .kanban-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      padding: 54px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.75fr) minmax(260px, 0.45fr);
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .section-kicker {
+      margin-bottom: 8px;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 9px;
+      font-size: clamp(28px, 4vw, 45px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .soft-note {
+      margin: 0;
+      border-left: 3px solid var(--teal);
+      padding: 10px 0 10px 13px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .agent-card {
+      position: relative;
+      padding: 16px;
+      text-align: left;
+      color: var(--text);
+      transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    }
+
+    .agent-card::before {
+      content: "";
+      display: block;
+      width: 34px;
+      height: 4px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      background: var(--teal);
+    }
+
+    .agent-card:nth-child(2)::before {
+      background: var(--rose);
+    }
+
+    .agent-card:nth-child(3)::before {
+      background: var(--blue);
+    }
+
+    .agent-card:nth-child(4)::before {
+      background: var(--gold);
+    }
+
+    .agent-card h3,
+    .plan-card h3 {
+      margin-bottom: 7px;
+      font-size: 18px;
+    }
+
+    .agent-card ul,
+    .plan-card ul {
+      display: grid;
+      gap: 6px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .agent-card li,
+    .plan-card li {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .agent-card li::before,
+    .plan-card li::before {
+      content: "+ ";
+      color: var(--teal);
+      font-weight: 900;
+    }
+
+    .agent-card.is-selected,
+    .agent-card:hover,
+    .agent-card:focus-within {
+      border-color: rgba(50, 214, 194, 0.58);
+      background: rgba(50, 214, 194, 0.08);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .card-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      margin-top: 16px;
+      padding: 9px 12px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .is-selected .card-action {
+      border-color: transparent;
+      color: var(--ink);
+      background: var(--teal);
+    }
+
+    .card-action:hover,
+    .card-action:focus-visible {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.34);
+      transform: translateY(-1px);
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(360px, 1.1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .plan-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .plan-card {
+      padding: 16px;
+      text-align: left;
+      color: var(--text);
+    }
+
+    .plan-card.is-selected,
+    .plan-card:hover,
+    .plan-card:focus-within {
+      outline: none;
+      border-color: rgba(126, 162, 255, 0.55);
+      background: rgba(126, 162, 255, 0.08);
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      color: var(--teal);
+      font-size: 24px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .price small {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .preview-stack {
+      display: grid;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .preview-card {
+      padding: 18px;
+    }
+
+    .preview-card h3 {
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .summary-box {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 11px;
+      background: #0b0f15;
+    }
+
+    .summary-box span {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--muted-2);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .summary-box strong {
+      display: block;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      font-size: 14px;
+    }
+
+    .payment-box {
+      border: 1px dashed rgba(255, 209, 102, 0.48);
+      background: rgba(255, 209, 102, 0.06);
+    }
+
+    .checkout-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 12px;
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--muted);
+      background: rgba(0, 0, 0, 0.18);
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      max-width: 100%;
+      border-radius: 8px;
+      padding: 5px 8px;
+      color: var(--ink);
+      background: var(--gold);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .intake-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr);
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      margin-top: 6px;
+      border-radius: 999px;
+      background: var(--teal);
+      box-shadow: 0 0 0 5px rgba(50, 214, 194, 0.1);
+    }
+
+    .supply-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .supply-card {
+      padding: 14px;
+    }
+
+    .supply-card h4 {
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+
+    .supply-card .fine {
+      margin-bottom: 0;
+      color: var(--muted-2);
+      font-size: 12px;
+    }
+
+    .dashboard {
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #0f131a;
+      box-shadow: var(--shadow);
+    }
+
+    .dashboard-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+      background: #151b24;
+    }
+
+    .dashboard-head h3 {
+      margin: 0 0 4px;
+      font-size: 20px;
+    }
+
+    .dashboard-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .kanban {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(132px, 1fr));
+      gap: 10px;
+      padding: 12px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .kanban-col {
+      min-width: 132px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .kanban-col h4 {
+      min-height: 34px;
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .kanban-card {
+      padding: 10px;
+      background: #0b0f15;
+    }
+
+    .kanban-card strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 13px;
+    }
+
+    .kanban-card p {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .empty-state {
+      min-height: 60px;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      color: var(--muted-2);
+      display: grid;
+      place-items: center;
+      padding: 10px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .review-band {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      padding: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .review-band .preview-card {
+      padding: 14px;
+    }
+
+    .privacy {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .privacy .preview-card {
+      display: grid;
+      align-content: start;
+    }
+
+    .contact-box {
+      border-color: rgba(50, 214, 194, 0.38);
+      background: rgba(50, 214, 194, 0.06);
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 34px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: var(--text);
+      font-weight: 750;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .flow-grid,
+      .intake-grid,
+      .privacy {
+        grid-template-columns: 1fr;
       }
-      .nav-links.open a { display: block; width: 100%; padding: 14px 12px; font-size: 16px; border-radius: 12px; }
-      .nav-links.open a:hover { background: rgba(45,212,191,0.1); }
-      .nav-links.open .nav-cta { margin-top: 4px; padding: 16px 18px; text-align: center; }
-      .nav-toggle { display: flex; }
-      .hero { padding: 50px 0 30px; }
-      .pricing-grid { grid-template-columns: 1fr; }
+
+      .agent-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .trust-strip,
+      .review-band {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .wrap,
+      .footer-inner {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .nav-inner {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .hero-grid,
+      .hero-grid > *,
+      .flow-grid,
+      .flow-grid > *,
+      .intake-grid,
+      .intake-grid > *,
+      .privacy,
+      .privacy > *,
+      .preview-stack,
+      .app-shell,
+      .auth-panel,
+      .auth-card,
+      .mini-panel,
+      .preview-card,
+      .agent-card,
+      .plan-card,
+      .supply-card,
+      .dashboard,
+      .dashboard-head,
+      .kanban,
+      .kanban-col,
+      .kanban-card,
+      .review-band,
+      .summary-grid,
+      .summary-box,
+      .checkout-line,
+      .button-row {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      .app-shell,
+      .dashboard {
+        overflow: hidden;
+      }
+
+      .app-top {
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .window-dots {
+        flex: 0 0 auto;
+      }
+
+      .app-title {
+        flex: 1 1 170px;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        line-height: 1.3;
+      }
+
+      .auth-panel {
+        padding: 14px;
+      }
+
+      .auth-card,
+      .mini-panel,
+      .preview-card {
+        padding: 16px;
+      }
+
+      .auth-tabs {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+
+      .tab {
+        min-width: 0;
+        padding-left: 8px;
+        padding-right: 8px;
+        white-space: normal;
+      }
+
+      .nav-toggle {
+        display: flex;
+        flex: 0 0 auto;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links.open {
+        position: absolute;
+        inset: 68px 12px auto;
+        display: grid;
+        gap: 4px;
+        padding: 10px;
+        border: 1px solid var(--line-strong);
+        border-radius: 8px;
+        background: #0d1118;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open a {
+        width: 100%;
+        padding: 13px;
+        white-space: normal;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      h1,
+      .lead,
+      .section-copy,
+      .soft-note,
+      .preview-card p,
+      .trust-item,
+      .app-title,
+      .btn,
+      .card-action,
+      .checkout-line,
+      .summary-box strong,
+      .kanban-card strong,
+      .kanban-card p {
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }
+
+      h1 {
+        max-width: 100%;
+        font-size: 40px;
+        line-height: 1.03;
+      }
+
+      .lead {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .auth-panel,
+      .summary-grid,
+      .supply-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-strip,
+      .agent-grid,
+      .review-band {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-head {
+        grid-template-columns: 1fr;
+      }
+
+      .kanban {
+        grid-template-columns: 1fr;
+        overflow-x: visible;
+      }
+
+      .kanban-col {
+        min-width: 0;
+      }
+
+      .checkout-line {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-actions,
+      .button-row {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-actions .btn,
+      .button-row .btn,
+      .card-action {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .wrap,
+      .footer-inner {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .brand-wordmark {
+        font-size: 17px;
+      }
+
+      .brand-wordmark .brand-studio {
+        margin-left: 5px;
+        font-size: 0.72em;
+      }
+
+      .brand small {
+        font-size: 9px;
+        letter-spacing: 0.1em;
+      }
+
+      .hero-actions .btn,
+      .button-row .btn {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .price-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        overflow-x: clip;
+      }
+
+      main,
+      section,
+      .hero {
+        width: 100%;
+        max-width: 100vw;
+        min-width: 0;
+      }
+
+      .wrap,
+      .footer-inner,
+      .nav-inner {
+        width: calc(100vw - 32px);
+        max-width: calc(100vw - 32px);
+        min-width: 0;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0;
+        padding-right: 0;
+        transform: none;
+        left: auto;
+        right: auto;
+      }
+
+      .hero-grid,
+      .hero-copy,
+      .hero-actions,
+      .trust-strip,
+      .trust-item,
+      .app-shell,
+      .app-top,
+      .auth-panel,
+      .auth-card,
+      .auth-tabs,
+      .field-stack,
+      .mini-panel,
+      .section-head,
+      .agent-grid,
+      .agent-card,
+      .flow-grid,
+      .plan-list,
+      .plan-card,
+      .preview-stack,
+      .preview-card,
+      .summary-grid,
+      .summary-box,
+      .checkout-line,
+      .intake-grid,
+      .supply-grid,
+      .supply-card,
+      .dashboard,
+      .dashboard-head,
+      .kanban,
+      .kanban-col,
+      .kanban-card,
+      .review-band,
+      .privacy,
+      .contact-box {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin-left: 0;
+        margin-right: 0;
+        transform: none;
+        left: auto;
+        right: auto;
+      }
+
+      .hero-grid,
+      .auth-panel,
+      .section-head,
+      .agent-grid,
+      .flow-grid,
+      .summary-grid,
+      .intake-grid,
+      .supply-grid,
+      .dashboard-head,
+      .kanban,
+      .review-band,
+      .privacy {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      h1 {
+        max-width: 100%;
+        font-size: clamp(32px, 9vw, 36px);
+        line-height: 1.05;
+      }
+
+      h1 span {
+        display: block;
+        max-width: 100%;
+      }
+
+      .lead,
+      .section-copy,
+      .soft-note,
+      .trust-item,
+      .preview-card p,
+      .kanban-card p,
+      .app-title,
+      .btn,
+      .card-action,
+      input,
+      textarea,
+      select {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }
+
+      .lead {
+        font-size: 16px;
+        line-height: 1.58;
+      }
+
+      .hero-actions,
+      .button-row {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .btn,
+      .card-action,
+      .hero-actions .btn,
+      .button-row .btn,
+      input,
+      textarea,
+      select {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .app-shell,
+      .dashboard {
+        overflow: hidden;
+      }
+
+      .app-top {
+        flex-wrap: nowrap;
+      }
+
+      .app-title {
+        flex: 1 1 auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .auth-panel {
+        padding: 12px;
+      }
+
+      .auth-card,
+      .mini-panel,
+      .preview-card {
+        padding: 14px;
+      }
+
+      .auth-tabs {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+
+      .tab {
+        min-width: 0;
+        white-space: normal;
+      }
+
+      .checkout-line {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .price-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .wrap,
+      .wrap.hero-grid,
+      .wrap.privacy,
+      .footer-inner,
+      .nav-inner {
+        width: calc(100vw - 32px) !important;
+        max-width: calc(100vw - 32px) !important;
+        min-width: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+      }
+
+      .nav-links {
+        position: absolute;
+        inset: 68px 16px auto;
+        display: grid;
+        gap: 4px;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .nav-links a {
+        width: 100%;
+        white-space: normal;
+      }
+
+      .nav-links.open {
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .wrap,
+      .wrap.hero-grid,
+      .wrap.privacy,
+      .footer-inner,
+      .nav-inner {
+        width: min(320px, calc(100vw - 48px)) !important;
+        max-width: min(320px, calc(100vw - 48px)) !important;
+        margin-left: 24px !important;
+        margin-right: auto !important;
+      }
+
+      .hero-copy,
+      .lead,
+      .hero-actions,
+      .trust-strip,
+      .app-shell,
+      .dashboard {
+        width: min(320px, calc(100vw - 48px)) !important;
+        max-width: min(320px, calc(100vw - 48px)) !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+      }
+
+      .lead,
+      .hero-actions,
+      .hero-actions .btn,
+      .trust-strip,
+      .trust-item,
+      .app-shell,
+      .app-top,
+      .app-title,
+      .auth-panel,
+      .form-card,
+      .auth-tabs,
+      .auth-tab,
+      input,
+      textarea,
+      select,
+      .btn,
+      .listener-card,
+      .app-shell .preview-card,
+      .app-shell .agent-card,
+      .app-shell .plan-card,
+      .app-shell .kanban-card,
+      .auth-card,
+      .mini-panel,
+      .field-stack {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+      }
+
+      .lead,
+      .hero-actions .btn,
+      .trust-item,
+      .auth-tab,
+      .btn,
+      .listener-card,
+      .form-card,
+      .form-card p,
+      .listener-card p {
+        white-space: normal !important;
+        overflow: visible;
+        text-overflow: clip;
+        overflow-wrap: anywhere;
+      }
+
+      .app-title {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+
+      .auth-panel,
+      .form-card,
+      .listener-card {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
     }
   </style>
 </head>
 <body>
-  <nav id="nav">
-      <a href="/" class="logo"><span class="w">WeBot</span><span class="b">Agency</span><span class="studio">STUDIO</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <nav class="site-nav" id="siteNav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="WeBot Studio home">
+        <span class="brand-text">
+          <strong class="brand-wordmark">We<span class="brand-bot">Bot</span><span class="brand-studio">Studio</span></strong>
+          <small>We Bot You</small>
+        </span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span aria-hidden="true">&#8203;</span></button>
       <div class="nav-links" id="navLinks">
-        <a href="#how">How It Works</a>
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#agents">Agents</a>
+        <a href="#access">Access</a>
+        <a href="#intake">Intake</a>
+        <a href="#dashboard">Dashboard</a>
         <a href="https://webot.agency">Agency</a>
         <a href="https://webot.buzz">Buzz</a>
-        <a href="mailto:ian@webot.agency?subject=WeBot Studio Inquiry" class="nav-cta">Get Started</a>
+        <a class="nav-cta" href="mailto:ian@webot.agency?subject=WeBot%20Studio%20Contact">Contact Us</a>
       </div>
+    </div>
   </nav>
-  <div class="container">
 
-    <!-- HERO -->
+  <main id="top">
     <section class="hero">
-      <div class="hero-tag"><span class="dot"></span> Managed AI Agent Hosting</div>
-      <h1>Where Your <span class="accent">AI Agents Live</span></h1>
-      <p>WeBot Studio is the managed hosting platform for custom AI agents built by WeBot Agency. Your bots run 24/7, monitored, maintained, and always on - so you don't have to think about servers.</p>
-      <a href="mailto:ian@webot.agency?subject=WeBot Studio - I need a bot" class="btn btn-teal">Build My Bot</a>
-      <a href="https://webot.agency" class="btn-ghost">Learn About WeBot →</a>
-    </section>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">WeBot Studio</p>
+          <h1><span>Pick an agent.</span> <span>Watch the work</span> <span>move.</span></h1>
+          <p class="lead">Sign in, choose the agent family for the job, pick access, complete plan setup, and land in a calm dashboard that shows real customer-facing checkpoints.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#agents">Choose Your Agent</a>
+            <a class="btn secondary" href="#dashboard">See Dashboard</a>
+          </div>
+          <div class="trust-strip" aria-label="Studio promises">
+            <div class="trust-item">Encrypted active-work window</div>
+            <div class="trust-item">Lead review before delivery</div>
+            <div class="trust-item">Customer review on every job</div>
+            <div class="trust-item">Most small jobs reviewed in 24-48h</div>
+          </div>
+        </div>
 
-    <div class="divider"></div>
-
-    <!-- HOW IT WORKS -->
-    <section class="section" id="how">
-      <div class="section-header">
-        <div class="section-label">How It Works</div>
-        <h2 class="section-title">From Idea to Always-On</h2>
-        <p class="section-sub">Three steps. No DevOps. No servers to manage.</p>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>Tell Us What You Need</h3>
-          <p>Customer service bot? Email automation? Data pipeline? Internal assistant? Tell us the workflow and we design the agent.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>We Build & Test It</h3>
-          <p>Our engineers build your custom AI agent, test it thoroughly, and deploy it to WeBot Studio - our managed infrastructure.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>It Runs. You Work.</h3>
-          <p>Your agent runs 24/7 on Studio. We handle uptime, monitoring, updates, and scaling. You focus on your business.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- FEATURES -->
-    <section class="section" id="features">
-      <div class="section-header">
-        <div class="section-label">Platform</div>
-        <h2 class="section-title">Built for Business-Critical AI</h2>
-      </div>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Always On</h3>
-          <p>Your agents run 24/7 with 99.9% uptime. No sleeping, no cold starts, no "the server is down."</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <h3>Secure & Isolated</h3>
-          <p>Each client gets isolated infrastructure. Your data never touches another client's environment.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>Monitoring & Logs</h3>
-          <p>Real-time dashboards showing agent activity, errors, performance, and usage. Know exactly what your bot is doing.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔄</div>
-          <h3>Managed Updates</h3>
-          <p>We maintain your agent - bug fixes, model upgrades, feature additions. No maintenance contracts or surprise bills.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔗</div>
-          <h3>API & Integrations</h3>
-          <p>Connect your agent to Slack, email, CRM, databases, APIs, webhooks - whatever your workflow needs.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📈</div>
-          <h3>Scales With You</h3>
-          <p>Start with one agent. Add more as you grow. Studio handles the infrastructure so you never hit a ceiling.</p>
+        <div class="app-shell" aria-label="Signup and login entry">
+          <div class="app-top">
+            <span class="window-dots" aria-hidden="true"><span>&#8203;</span><span>&#8203;</span><span>&#8203;</span></span>
+            <span class="app-title">webot.studio / entry</span>
+          </div>
+          <div class="auth-panel">
+            <div class="auth-card form-card">
+              <div class="auth-tabs" role="tablist" aria-label="Entry mode">
+                <button class="tab auth-tab active" type="button">Sign up</button>
+                <button class="tab auth-tab" type="button">Log in</button>
+              </div>
+              <div class="field-stack">
+                <label>
+                  Email
+                  <input type="email" value="you@example.com" aria-label="Email field">
+                </label>
+                <label>
+                  Project name
+                  <input type="text" value="June launch help" aria-label="Project name field">
+                </label>
+                <button class="btn primary" type="button">Continue to agent choice</button>
+              </div>
+              <p class="form-note">Account access is enabled during onboarding. Use Contact Us if you need help getting started today.</p>
+            </div>
+            <div class="mini-panel listener-card">
+              <span class="status-pill">Listener ready</span>
+              <h2>Warm intake, calm handoff.</h2>
+              <p>A lightweight listener is ready to receive your request, then the right worker takes over. The dashboard uses friendly states, not internal tool names.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="divider"></div>
-
-    <!-- PRICING -->
-    <section class="section" id="pricing">
-      <div class="section-header">
-        <div class="section-label">Pricing</div>
-        <h2 class="section-title">Simple. No Surprises.</h2>
-        <p class="section-sub">Build fee + monthly hosting. That's it.</p>
-      </div>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <h3>Starter</h3>
-          <div class="price">$99<span>/mo</span></div>
-          <div class="desc">One agent, essential capabilities</div>
-          <ul class="price-features">
-            <li>1 custom AI agent</li>
-            <li>24/7 hosting & monitoring</li>
-            <li>Email + webhook integrations</li>
-            <li>Basic dashboard</li>
-            <li>Email support</li>
-          </ul>
-          <a href="mailto:ian@webot.agency?subject=Studio Starter" class="btn btn-teal" style="width:100%;text-align:center">Get Started</a>
+    <section id="agents">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Agent family chooser</p>
+            <h2>Start with the kind of work.</h2>
+            <p class="section-copy">Each family routes to focused helpers, a lead review pass, and a customer review step before final delivery. Higher access buys capacity, priority, complexity, and convenience, not lower or higher care.</p>
+          </div>
+          <p class="soft-note">Select a family to update your Studio path. Full account routing is connected during onboarding.</p>
         </div>
-        <div class="price-card featured">
-          <h3>Professional</h3>
-          <div class="price">$249<span>/mo</span></div>
-          <div class="desc">Multiple agents, full integrations</div>
-          <ul class="price-features">
-            <li>Up to 3 AI agents</li>
-            <li>24/7 hosting & monitoring</li>
-            <li>All integrations (Slack, CRM, API)</li>
-            <li>Advanced dashboard + analytics</li>
-            <li>Priority support</li>
-            <li>Monthly optimization reviews</li>
-          </ul>
-          <a href="mailto:ian@webot.agency?subject=Studio Professional" class="btn btn-teal" style="width:100%;text-align:center">Get Started</a>
-        </div>
-        <div class="price-card">
-          <h3>Enterprise</h3>
-          <div class="price" style="font-size:28px">Custom</div>
-          <div class="desc">Unlimited agents, dedicated infrastructure</div>
-          <ul class="price-features">
-            <li>Unlimited AI agents</li>
-            <li>Dedicated infrastructure</li>
-            <li>Custom integrations & workflows</li>
-            <li>SLA guarantee</li>
-            <li>Dedicated account manager</li>
-            <li>On-call support</li>
-          </ul>
-          <a href="mailto:ian@webot.agency?subject=Studio Enterprise" class="btn btn-teal" style="width:100%;text-align:center">Contact Us</a>
-        </div>
-      </div>
-      <p style="text-align:center;font-size:12px;color:var(--text-dim);margin-top:20px">Custom build fee quoted per project. Hosting starts after deployment.</p>
-    </section>
 
-    <div class="divider"></div>
+        <div class="agent-grid" role="list" aria-label="Agent families">
+          <article class="agent-card is-selected" role="listitem" data-agent="Gather & Extract" data-persona="Web Scout + Doc Miner" data-deliverable="Clean research pack, spreadsheet, source notes, or extracted document set">
+            <h3>Gather & Extract</h3>
+            <p>Scraping, research capture, OCR, PDFs, tables, lead lists, and messy source cleanup.</p>
+            <ul>
+              <li>Web Scout</li>
+              <li>Doc Miner</li>
+              <li>Data Fixer</li>
+            </ul>
+            <button class="card-action agent-select" type="button" aria-pressed="true">Select Gather & Extract</button>
+          </article>
 
-    <!-- CTA -->
-    <section class="section">
-      <div class="cta-box">
-        <h2>Ready to Put AI to Work?</h2>
-        <p>Tell us what your business needs automated. We'll design, build, and host the agent - you just use it.</p>
-        <a href="mailto:ian@webot.agency?subject=I need a custom AI agent" class="btn btn-teal">Let's Build Something</a>
+          <article class="agent-card" role="listitem" data-agent="Create & Polish" data-persona="Voice Maker + Cardsmith" data-deliverable="Polished copy, greeting card, social post, image card, or email-ready content">
+            <h3>Create & Polish</h3>
+            <p>Social posts, greeting cards, wishes, story work, tone rewrites, logos, and business cards.</p>
+            <ul>
+              <li>Cardsmith</li>
+              <li>Brandsmith</li>
+              <li>Storysmith</li>
+            </ul>
+            <button class="card-action agent-select" type="button" aria-pressed="false">Select Create & Polish</button>
+          </article>
+
+          <article class="agent-card" role="listitem" data-agent="Build & Automate" data-persona="Code Partner + Sheet Builder" data-deliverable="Code, formulas, workflow runbook, reusable skill, or automation plan">
+            <h3>Build & Automate</h3>
+            <p>Code writing, code review, spreadsheet formulas, workflow automations, and agent runbooks.</p>
+            <ul>
+              <li>Code Partner</li>
+              <li>Review Lead</li>
+              <li>Skillwright</li>
+            </ul>
+            <button class="card-action agent-select" type="button" aria-pressed="false">Select Build & Automate</button>
+          </article>
+
+          <article class="agent-card" role="listitem" data-agent="Review & Decide" data-persona="Research Desk + Quality Desk" data-deliverable="Decision memo, options summary, fact-check pack, or executive brief">
+            <h3>Review & Decide</h3>
+            <p>Research, comparisons, business summaries, second opinions, and final quality reviews.</p>
+            <ul>
+              <li>Research Desk</li>
+              <li>Brief Builder</li>
+              <li>Quality Desk</li>
+            </ul>
+            <button class="card-action agent-select" type="button" aria-pressed="false">Select Review & Decide</button>
+          </article>
+        </div>
       </div>
     </section>
 
-    <footer>
-      <p>© 2026 <a href="https://webot.agency">WeBot Agency</a> · <a href="https://webot.buzz">Buzz</a> · An F5 Company · We Bot You!</p>
-    </footer>
+    <section id="access">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Plans and access</p>
+            <h2>Choose access, then confirm payment.</h2>
+            <p class="section-copy">Secure checkout links are added during plan setup. Approved links return customers to the payment-confirmed Studio state and open the first project intake.</p>
+          </div>
+          <p class="soft-note">All tiers get premier-quality output and lead review. Larger tiers increase included runs, active projects, file size, priority, and onboarding help.</p>
+        </div>
 
-  </div>
+        <div class="flow-grid">
+          <div class="plan-list" aria-label="Access choices">
+            <article class="plan-card is-selected" data-plan="Starter" data-price="Checkout added during onboarding" data-capacity="1 active project, focused monthly runs">
+              <div class="price-row">
+                <h3>Starter</h3>
+                <span class="price">Access <small>setup</small></span>
+              </div>
+              <p>For one focused project at a time with reviewed delivery and simple handoff.</p>
+              <ul>
+                <li>1 active project</li>
+                <li>1 agent family at a time</li>
+                <li>Premier-quality review included</li>
+              </ul>
+              <button class="card-action plan-select" type="button" aria-pressed="true">Select Starter</button>
+            </article>
+
+            <article class="plan-card" data-plan="Plus" data-price="Checkout added during onboarding" data-capacity="More runs, larger files, priority review">
+              <div class="price-row">
+                <h3>Plus</h3>
+                <span class="price">Access <small>setup</small></span>
+              </div>
+              <p>For recurring personal or business work with more capacity and faster review priority.</p>
+              <ul>
+                <li>Multiple agent families</li>
+                <li>Larger context and files</li>
+                <li>Priority reviewed-delivery queue</li>
+              </ul>
+              <button class="card-action plan-select" type="button" aria-pressed="false">Select Plus</button>
+            </article>
+
+            <article class="plan-card" data-plan="Studio" data-price="Checkout added during onboarding" data-capacity="Concurrent projects, dashboard history, onboarding">
+              <div class="price-row">
+                <h3>Studio</h3>
+                <span class="price">Access <small>setup</small></span>
+              </div>
+              <p>For teams that need multiple projects moving with cleaner onboarding and custom workflows.</p>
+              <ul>
+                <li>Multiple concurrent projects</li>
+                <li>Workflow setup support</li>
+                <li>Business onboarding path</li>
+              </ul>
+              <button class="card-action plan-select" type="button" aria-pressed="false">Select Studio</button>
+            </article>
+
+            <article class="plan-card" data-plan="Custom" data-price="Contact Us" data-capacity="Dedicated setup, connectors, special workspace needs">
+              <div class="price-row">
+                <h3>Custom</h3>
+                <span class="price">Contact <small>required</small></span>
+              </div>
+              <p>For connectors, longer storage needs, repeat access to files, or hosted workspace planning.</p>
+              <ul>
+                <li>Human scoping required</li>
+                <li>Explicit storage rules if needed</li>
+                <li>No default retention claim</li>
+              </ul>
+              <button class="card-action plan-select" type="button" aria-pressed="false">Select Custom</button>
+            </article>
+          </div>
+
+          <div class="preview-stack">
+            <article class="preview-card">
+              <span class="tag">Build screen</span>
+              <h3 id="buildTitle">Gather & Extract project</h3>
+              <p id="buildText">Web Scout + Doc Miner will turn your sources into a clean research pack, spreadsheet, source notes, or extracted document set.</p>
+              <div class="summary-grid" aria-label="Selected project summary">
+                <div class="summary-box">
+                  <span>Agent family</span>
+                  <strong id="summaryAgent">Gather & Extract</strong>
+                </div>
+                <div class="summary-box">
+                  <span>Access</span>
+                  <strong id="summaryPlan">Starter</strong>
+                </div>
+                <div class="summary-box">
+                  <span>Expectation</span>
+                  <strong>24-48h reviewed jobs</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="preview-card payment-box">
+              <span class="tag">Checkout setup</span>
+              <h3>Secure checkout is connected during plan setup.</h3>
+              <p>Approved checkout links are added during onboarding and return customers to Studio once payment is confirmed. Custom access starts through Contact Us.</p>
+              <div class="checkout-line">
+                <strong id="paymentLabel">Starter - checkout added during onboarding</strong>
+                <span>Ready for approved Stripe URL insertion</span>
+              </div>
+              <div class="button-row" style="margin-top: 12px;">
+                <button class="btn primary" type="button" id="confirmPayment">Continue to intake</button>
+                <a class="btn" href="mailto:ian@webot.agency?subject=WeBot%20Studio%20Custom%20Access">Contact Us</a>
+              </div>
+            </article>
+
+            <article class="preview-card" id="confirmedCard">
+              <span class="tag">Confirmed state</span>
+              <h3 id="confirmedTitle">Payment-confirmed Studio state</h3>
+              <p id="confirmedText">After approved payment confirmation, Studio opens your first project intake and keeps the work visible in a read-only dashboard.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="intake">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Intake and helpful supplies</p>
+            <h2>Give context once. Review before final delivery.</h2>
+            <p class="section-copy">Every project starts with a brief, upload or paste area, delivery preference, and a clear review checkpoint. The page keeps tool details out of the customer view.</p>
+          </div>
+          <p class="soft-note">Helpful supplies can appear here when your file is formatted for a specific paper or card layout. No paid supply links are active on this screen.</p>
+        </div>
+
+        <div class="intake-grid">
+          <article class="preview-card">
+            <span class="tag">Intake</span>
+            <div class="field-stack">
+              <label>
+                What are we making?
+                <input type="text" value="Clean up the launch list and draft a summary" aria-label="Static job title">
+              </label>
+              <label>
+                Context for the agent
+                <textarea aria-label="Job context">Paste instructions, links, notes, or file descriptions here. File handling is enabled during onboarding for approved customer jobs.</textarea>
+              </label>
+              <label>
+                Delivery type
+                <select aria-label="Static delivery type">
+                  <option>Downloadable files</option>
+                  <option>Email-ready content</option>
+                  <option>Dashboard review only</option>
+                  <option>Custom handoff</option>
+                </select>
+              </label>
+            </div>
+            <p class="form-note">For active jobs, files are encrypted while the job is open, kept only long enough to complete and review the request, then expired automatically.</p>
+          </article>
+
+          <article class="preview-card">
+            <span class="tag">Customer path</span>
+            <h3>What happens after intake</h3>
+            <div class="timeline" aria-label="Customer project timeline">
+              <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Received.</strong> Studio confirms the request and checks that the right agent family is selected.</span></div>
+              <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Preparing.</strong> A warm listener routes the job and posts the first dashboard checkpoint.</span></div>
+              <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Working.</strong> The agent prepares the deliverable and status updates stay customer-friendly.</span></div>
+              <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Lead review.</strong> A review pass checks the work before it is shown as ready.</span></div>
+              <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Your review.</strong> You approve, ask a question, or request an adjustment.</span></div>
+            </div>
+
+            <div class="supply-grid" aria-label="Helpful supplies modules">
+              <div class="supply-card">
+                <h4>Cardsmith supplies</h4>
+                <p>Helpful supplies can appear here when your greeting card file is formatted for a specific paper or card layout.</p>
+                <p class="fine">No paid links active.</p>
+              </div>
+              <div class="supply-card">
+                <h4>Brandsmith supplies</h4>
+                <p>Helpful supplies can appear here when your business card or logo file is sized for a specific stock or layout.</p>
+                <p class="fine">No paid supply links are active on this screen.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Read-only dashboard</p>
+            <h2>Customers see state, not internals.</h2>
+            <p class="section-copy">The board shows where the project is, what is next, and when to expect the next reviewed update. It does not expose private reasoning, vendor names, or hidden implementation details.</p>
+          </div>
+          <p class="soft-note">This kanban is read-only by design. Customer actions happen at review and request-adjustment checkpoints.</p>
+        </div>
+
+        <div class="dashboard">
+          <div class="dashboard-head">
+            <div>
+              <h3 id="dashboardTitle">June launch help</h3>
+              <p id="dashboardMeta">Gather & Extract - Starter - next update after lead review</p>
+            </div>
+            <span class="status-pill">Lead review active</span>
+          </div>
+
+          <div class="kanban" aria-label="Read-only project states">
+            <div class="kanban-col">
+              <h4>Intake</h4>
+              <div class="kanban-card">
+                <strong>Request received</strong>
+                <p>Context captured. Files would stay inside the active-work window.</p>
+              </div>
+            </div>
+            <div class="kanban-col">
+              <h4>Setup</h4>
+              <div class="kanban-card">
+                <strong>Route selected</strong>
+                <p id="routeCard">Web Scout + Doc Miner assigned.</p>
+              </div>
+            </div>
+            <div class="kanban-col">
+              <h4>Working</h4>
+              <div class="kanban-card">
+                <strong>Draft in progress</strong>
+                <p id="workCard">Preparing the first clean research pack.</p>
+              </div>
+            </div>
+            <div class="kanban-col">
+              <h4>Lead Review</h4>
+              <div class="kanban-card">
+                <strong>Quality pass</strong>
+                <p>Reviewed before the customer sees the deliverable.</p>
+              </div>
+            </div>
+            <div class="kanban-col">
+              <h4>Customer Review</h4>
+              <div class="empty-state">Waiting for your approval or adjustment request.</div>
+            </div>
+            <div class="kanban-col">
+              <h4>Delivered</h4>
+              <div class="empty-state">Final handoff appears after customer review.</div>
+            </div>
+          </div>
+
+          <div class="review-band">
+            <article class="preview-card">
+              <h3>Review choices</h3>
+              <p>Approve, ask a question, or request an adjustment before the work is considered final.</p>
+            </article>
+            <article class="preview-card">
+              <h3>Deliverables</h3>
+              <p id="deliverableCard">Clean research pack, spreadsheet, source notes, or extracted document set.</p>
+            </article>
+            <article class="preview-card">
+              <h3>Timing</h3>
+              <p>Most small jobs are reviewed within 24-48 hours. Complex work gets its own estimate.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy">
+      <div class="wrap privacy">
+        <article class="preview-card">
+          <p class="section-kicker">Privacy stance</p>
+          <h2>Your files stay tied to the active job.</h2>
+          <p>Your files are encrypted while your job is active. We keep them only long enough to complete and review your request, then they expire automatically. After that, they are gone, so you stay in control of what you share and when.</p>
+          <p>No storage tiers are offered here. Audit-style records should describe status and timestamps, not raw customer content.</p>
+        </article>
+
+        <article class="preview-card contact-box">
+          <p class="section-kicker">Longer storage or repeat access</p>
+          <h2>Contact us first.</h2>
+          <p>If you need longer storage, repeat access to files, a hosted workspace, or special connector planning, use the Contact Us path so retention, encryption, billing, and deletion rules can be reviewed before anything is promised.</p>
+          <div class="button-row">
+            <a class="btn primary" href="mailto:ian@webot.agency?subject=WeBot%20Studio%20Longer%20Storage%20Request">Contact Us</a>
+            <a class="btn" href="https://webot.agency">Back to WeBot Agency</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>(c) 2026 WeBot Agency, an F5 Company. We Bot You.</p>
+      <div class="footer-links">
+        <a href="https://webot.agency">webot.agency</a>
+        <a href="https://webot.buzz">webot.buzz</a>
+        <a href="mailto:ian@webot.agency?subject=WeBot%20Studio%20Inquiry">Contact</a>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    const toggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    const nav = document.getElementById('nav');
-    const closeMenu = () => { navLinks.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); };
-    const openMenu = () => { navLinks.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); };
-    toggle.addEventListener('click', () => { navLinks.classList.contains('open') ? closeMenu() : openMenu(); });
-    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-    document.addEventListener('click', e => { if (!nav.contains(e.target) && navLinks.classList.contains('open')) closeMenu(); });
-    window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+    const nav = document.getElementById("siteNav");
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    const agentCards = Array.from(document.querySelectorAll(".agent-card"));
+    const planCards = Array.from(document.querySelectorAll(".plan-card"));
+    const agentButtons = Array.from(document.querySelectorAll(".agent-select"));
+    const planButtons = Array.from(document.querySelectorAll(".plan-select"));
+    const summaryAgent = document.getElementById("summaryAgent");
+    const summaryPlan = document.getElementById("summaryPlan");
+    const buildTitle = document.getElementById("buildTitle");
+    const buildText = document.getElementById("buildText");
+    const paymentLabel = document.getElementById("paymentLabel");
+    const confirmedTitle = document.getElementById("confirmedTitle");
+    const confirmedText = document.getElementById("confirmedText");
+    const confirmPayment = document.getElementById("confirmPayment");
+    const dashboardMeta = document.getElementById("dashboardMeta");
+    const routeCard = document.getElementById("routeCard");
+    const workCard = document.getElementById("workCard");
+    const deliverableCard = document.getElementById("deliverableCard");
+
+    let selectedAgent = {
+      family: "Gather & Extract",
+      persona: "Web Scout + Doc Miner",
+      deliverable: "Clean research pack, spreadsheet, source notes, or extracted document set"
+    };
+
+    let selectedPlan = {
+      plan: "Starter",
+      price: "Checkout added during onboarding",
+      capacity: "1 active project, focused monthly runs"
+    };
+
+    function closeMenu() {
+      navLinks.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+
+    function updatePreview() {
+      summaryAgent.textContent = selectedAgent.family;
+      summaryPlan.textContent = selectedPlan.plan;
+      buildTitle.textContent = `${selectedAgent.family} project`;
+      buildText.textContent = `${selectedAgent.persona} will prepare: ${selectedAgent.deliverable}.`;
+      paymentLabel.textContent = `${selectedPlan.plan} - ${selectedPlan.price}`;
+      dashboardMeta.textContent = `${selectedAgent.family} - ${selectedPlan.plan} - next update after lead review`;
+      routeCard.textContent = `${selectedAgent.persona} assigned.`;
+      workCard.textContent = `Preparing: ${selectedAgent.deliverable}.`;
+      deliverableCard.textContent = `${selectedAgent.deliverable}.`;
+    }
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!nav.contains(event.target) && navLinks.classList.contains("open")) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 760) {
+        closeMenu();
+      }
+    });
+
+    agentButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".agent-card");
+        agentCards.forEach((item) => item.classList.remove("is-selected"));
+        agentButtons.forEach((item) => item.setAttribute("aria-pressed", "false"));
+        card.classList.add("is-selected");
+        button.setAttribute("aria-pressed", "true");
+        selectedAgent = {
+          family: card.dataset.agent,
+          persona: card.dataset.persona,
+          deliverable: card.dataset.deliverable
+        };
+        updatePreview();
+      });
+    });
+
+    planButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".plan-card");
+        planCards.forEach((item) => item.classList.remove("is-selected"));
+        planButtons.forEach((item) => item.setAttribute("aria-pressed", "false"));
+        card.classList.add("is-selected");
+        button.setAttribute("aria-pressed", "true");
+        selectedPlan = {
+          plan: card.dataset.plan,
+          price: card.dataset.price,
+          capacity: card.dataset.capacity
+        };
+        updatePreview();
+      });
+    });
+
+    confirmPayment.addEventListener("click", () => {
+      confirmedTitle.textContent = "Payment-confirmed Studio state";
+      confirmedText.textContent = `${selectedPlan.plan} access continues into intake after approved checkout is connected. Studio opens intake for ${selectedAgent.family} and posts read-only dashboard checkpoints.`;
+      document.getElementById("intake").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   </script>
 </body>
 </html>
