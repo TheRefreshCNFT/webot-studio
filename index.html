@@ -6,12 +6,49 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <title>WeBot Studio - Pick an Agent, Watch the Work Move</title>
-  <meta name="description" content="WeBot Studio helps customers choose a WeBot agent, select access or job credits, pay through Stripe Checkout, and follow reviewed work through a clear customer dashboard.">
+  <title>WeBot Studio - Pick an Agent, Plan It, Watch the Work Move</title>
+  <meta name="description" content="WeBot Studio helps customers choose a WeBot agent for itinerary planning, vacations, date nights, business get-togethers, road trips, documents, code, cards, research, and reviewed delivery through a clear customer dashboard.">
+  <meta name="keywords" content="AI itinerary planner, vacation planner, date night planner, road trip planner, business get together planner, AI agent dashboard, Stripe checkout AI services, reviewed AI deliverables">
+  <link rel="canonical" href="https://webot.studio/">
   <meta property="og:title" content="WeBot Studio - We Bot You">
-  <meta property="og:description" content="Choose an agent family, pick access, open intake, and watch a read-only project board move toward reviewed delivery.">
+  <meta property="og:description" content="Choose an agent family, pick access, open intake, and watch itinerary plans, documents, code, cards, research, and other jobs move toward reviewed delivery.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://webot.studio">
+  <meta property="og:url" content="https://webot.studio/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://webot.studio/#app",
+        "name": "WeBot Studio",
+        "url": "https://webot.studio/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "A customer-facing Studio for selecting reviewed WeBot agent work, paying through Stripe Checkout, opening intake, and following dashboard checkpoints."
+      },
+      {
+        "@type": "Service",
+        "@id": "https://webot.studio/#services",
+        "name": "WeBot Studio reviewed agent delivery",
+        "provider": { "@type": "Organization", "name": "WeBot Agency", "url": "https://webot.agency/" },
+        "serviceType": "Reviewed AI agent delivery",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Studio agent families",
+          "itemListElement": [
+            { "@type": "Offer", "name": "Plan & Itinerary for vacations, date nights, business get-togethers, and road trips" },
+            { "@type": "Offer", "name": "Gather & Extract for scraping, OCR, PDFs, and data cleanup" },
+            { "@type": "Offer", "name": "Create & Polish for cards, copy, social posts, and brand assets" },
+            { "@type": "Offer", "name": "Build & Automate for code, spreadsheets, automations, and runbooks" },
+            { "@type": "Offer", "name": "Review & Decide for research, comparison briefs, and decisions" }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     :root {
       --bg: #090b10;
@@ -552,7 +589,7 @@
 
     .agent-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 12px;
     }
 
@@ -584,6 +621,10 @@
 
     .agent-card:nth-child(4)::before {
       background: var(--gold);
+    }
+
+    .agent-card:nth-child(5)::before {
+      background: var(--green);
     }
 
     .agent-card h3,
@@ -865,7 +906,7 @@
 
     .kanban {
       display: grid;
-      grid-template-columns: repeat(6, minmax(132px, 1fr));
+      grid-template-columns: repeat(7, minmax(132px, 1fr));
       gap: 10px;
       padding: 12px;
       overflow-x: auto;
@@ -931,6 +972,133 @@
       padding: 14px;
     }
 
+    .test-desk {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(320px, 1.14fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .scenario-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .scenario-card {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 13px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      text-align: left;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+
+    .scenario-card:hover,
+    .scenario-card:focus-visible,
+    .scenario-card.is-active {
+      border-color: rgba(50, 214, 194, 0.58);
+      background: rgba(50, 214, 194, 0.08);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .scenario-card strong,
+    .chat-meta strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .scenario-card span,
+    .chat-meta span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .chat-panel {
+      display: grid;
+      gap: 12px;
+    }
+
+    .chat-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .chat-meta div {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      background: #0b0f15;
+    }
+
+    .chat-window {
+      display: grid;
+      gap: 10px;
+      min-height: 250px;
+      max-height: 360px;
+      overflow: auto;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #0b0f15;
+    }
+
+    .chat-message {
+      max-width: 88%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.42;
+    }
+
+    .chat-message.customer {
+      justify-self: end;
+      color: var(--text);
+      background: rgba(126, 162, 255, 0.1);
+      border-color: rgba(126, 162, 255, 0.32);
+    }
+
+    .chat-message.agent {
+      justify-self: start;
+      background: rgba(50, 214, 194, 0.08);
+      border-color: rgba(50, 214, 194, 0.28);
+    }
+
+    .chat-input-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+
+    .review-gates {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .review-gate {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .review-gate strong {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
     .privacy {
       display: grid;
       grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1fr);
@@ -980,6 +1148,7 @@
       .hero-grid,
       .flow-grid,
       .intake-grid,
+      .test-desk,
       .privacy {
         grid-template-columns: 1fr;
       }
@@ -994,7 +1163,9 @@
       }
 
       .trust-strip,
-      .review-band {
+      .review-band,
+      .chat-meta,
+      .review-gates {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -1029,6 +1200,8 @@
       .flow-grid > *,
       .intake-grid,
       .intake-grid > *,
+      .test-desk,
+      .test-desk > *,
       .privacy,
       .privacy > *,
       .preview-stack,
@@ -1046,6 +1219,13 @@
       .kanban-col,
       .kanban-card,
       .review-band,
+      .scenario-list,
+      .scenario-card,
+      .chat-panel,
+      .chat-meta,
+      .chat-window,
+      .chat-input-row,
+      .review-gates,
       .summary-grid,
       .summary-box,
       .checkout-line,
@@ -1166,7 +1346,10 @@
 
       .trust-strip,
       .agent-grid,
-      .review-band {
+      .review-band,
+      .chat-meta,
+      .review-gates,
+      .chat-input-row {
         grid-template-columns: 1fr;
       }
 
@@ -1283,6 +1466,14 @@
       .agent-grid,
       .agent-card,
       .flow-grid,
+      .test-desk,
+      .scenario-list,
+      .scenario-card,
+      .chat-panel,
+      .chat-meta,
+      .chat-window,
+      .chat-input-row,
+      .review-gates,
       .plan-list,
       .plan-card,
       .preview-stack,
@@ -1332,10 +1523,14 @@
       .flow-grid,
       .summary-grid,
       .intake-grid,
+      .test-desk,
       .supply-grid,
       .dashboard-head,
       .kanban,
       .review-band,
+      .chat-meta,
+      .review-gates,
+      .chat-input-row,
       .privacy {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -1599,14 +1794,14 @@
         <div class="hero-copy">
           <p class="eyebrow">WeBot Studio</p>
           <h1><span>Pick an agent.</span> <span>Watch the work</span> <span>move.</span></h1>
-          <p class="lead">Choose the agent family for the job, pick monthly access or job credits, pay through Stripe Checkout, and land in a calm dashboard that shows customer-facing checkpoints.</p>
+          <p class="lead">Choose the agent family for the job, including itinerary planning for vacations, date nights, business get-togethers, and road trips. Pick monthly access or job credits, pay through Stripe Checkout, and land in a calm dashboard that shows customer-facing checkpoints.</p>
           <div class="hero-actions">
             <a class="btn primary" href="#agents">Choose Your Agent</a>
             <a class="btn secondary" href="#dashboard">See Dashboard</a>
           </div>
           <div class="trust-strip" aria-label="Studio promises">
             <div class="trust-item">Encrypted active-work window</div>
-            <div class="trust-item">Lead review before delivery</div>
+            <div class="trust-item">Double review before delivery</div>
             <div class="trust-item">Customer review on every job</div>
             <div class="trust-item">Most small jobs reviewed in 24-48h</div>
           </div>
@@ -1700,6 +1895,18 @@
               <li>Quality Desk</li>
             </ul>
             <button class="card-action agent-select" type="button" aria-pressed="false">Select Review & Decide</button>
+          </article>
+
+          <article class="agent-card" role="listitem" data-agent="Plan & Itinerary" data-persona="Trip Planner + Host Planner" data-deliverable="Day-by-day itinerary, date plan, business gathering run-of-show, road-trip route, reservation checklist, backup ideas, and helpful supply list">
+            <h3>Plan & Itinerary</h3>
+            <p>Vacations, date nights, business get-togethers, road trips, route timing, reservation notes, and useful backup plans.</p>
+            <ul>
+              <li>Trip Planner</li>
+              <li>Date Night Curator</li>
+              <li>Host Planner</li>
+              <li>Route Builder</li>
+            </ul>
+            <button class="card-action agent-select" type="button" aria-pressed="false">Select Plan & Itinerary</button>
           </article>
         </div>
       </div>
@@ -1856,6 +2063,12 @@
               <span class="tag">Status</span>
               <h3 id="confirmedTitle">No payment status yet</h3>
               <p id="confirmedText">After Stripe sends you back with a payment status, this page will show the return state here. Until then, choose a product and continue through checkout.</p>
+              <div class="timeline" aria-label="Next steps after Stripe">
+                <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Checkout.</strong> Stripe confirms the product and customer email.</span></div>
+                <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Intake.</strong> Studio captures the request, files, constraints, and delivery type.</span></div>
+                <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Routing.</strong> The right agent family is confirmed before work starts.</span></div>
+                <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Review.</strong> Lead review and fresh-context review happen before customer review.</span></div>
+              </div>
             </article>
           </div>
         </div>
@@ -1905,7 +2118,8 @@
               <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Received.</strong> Studio confirms the request and checks that the right agent family is selected.</span></div>
               <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Preparing.</strong> A warm listener routes the job and posts the first dashboard checkpoint.</span></div>
               <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Working.</strong> The agent prepares the deliverable and status updates stay customer-friendly.</span></div>
-              <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Lead review.</strong> A review pass checks the work before it is shown as ready.</span></div>
+              <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Lead review.</strong> A review pass checks accuracy, fit, formatting, and delivery readiness.</span></div>
+              <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Fresh-context review.</strong> A second pass reviews the work cold; technical work also gets engineer review.</span></div>
               <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Your review.</strong> You approve, ask a question, or request an adjustment.</span></div>
             </div>
 
@@ -1919,6 +2133,11 @@
                 <h4>Brandsmith supplies</h4>
                 <p>Helpful supplies can appear here when your business card or logo file is sized for a specific stock or layout.</p>
                 <p class="fine">No paid supply links are active on this screen.</p>
+              </div>
+              <div class="supply-card">
+                <h4>Plan & Itinerary supplies</h4>
+                <p>Helpful supplies can appear here for packing, printable schedules, place cards, meeting materials, or road-trip essentials when they fit the reviewed plan.</p>
+                <p class="fine">No ad spend or tracking pixels active.</p>
               </div>
             </div>
           </article>
@@ -1943,7 +2162,7 @@
               <h3 id="dashboardTitle">June launch help</h3>
               <p id="dashboardMeta">Gather & Extract - Starter - next update after lead review</p>
             </div>
-            <span class="status-pill">Lead review active</span>
+            <span class="status-pill" id="dashboardStatus">Lead review active</span>
           </div>
 
           <div class="kanban" aria-label="Read-only project states">
@@ -1972,23 +2191,30 @@
               <h4>Lead Review</h4>
               <div class="kanban-card">
                 <strong>Quality pass</strong>
-                <p>Reviewed before the customer sees the deliverable.</p>
+                <p id="leadReviewCard">Lead review checks accuracy, fit, formatting, and delivery readiness.</p>
+              </div>
+            </div>
+            <div class="kanban-col">
+              <h4>Fresh Review</h4>
+              <div class="kanban-card">
+                <strong>Cold pass</strong>
+                <p id="freshReviewCard">Fresh-context review checks the work without relying on the first pass.</p>
               </div>
             </div>
             <div class="kanban-col">
               <h4>Customer Review</h4>
-              <div class="empty-state">Waiting for your approval or adjustment request.</div>
+              <div class="empty-state" id="customerReviewCard">Waiting for your approval or adjustment request.</div>
             </div>
             <div class="kanban-col">
               <h4>Delivered</h4>
-              <div class="empty-state">Final handoff appears after customer review.</div>
+              <div class="empty-state" id="deliveryCard">Final handoff appears after customer review.</div>
             </div>
           </div>
 
           <div class="review-band">
             <article class="preview-card">
               <h3>Review choices</h3>
-              <p>Approve, ask a question, or request an adjustment before the work is considered final.</p>
+              <p id="reviewChoiceCard">Approve, ask a question, or request an adjustment before the work is considered final.</p>
             </article>
             <article class="preview-card">
               <h3>Deliverables</h3>
@@ -1999,6 +2225,81 @@
               <p>Most small jobs are reviewed within 24-48 hours. Complex work gets its own estimate.</p>
             </article>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="test-desk">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Human test desk</p>
+            <h2>Route sample customers before launch.</h2>
+            <p class="section-copy">Use the built-in scenarios to confirm the right agent is chosen, the agent answers, review gates are present, and the dashboard changes with the customer request.</p>
+          </div>
+          <p class="soft-note">These are deterministic launch tests for the public Studio page. Real customer jobs still flow through paid intake, CRM import, production work, and review.</p>
+        </div>
+
+        <div class="test-desk">
+          <article class="preview-card">
+            <span class="tag">Test users</span>
+            <h3>Client scenarios</h3>
+            <div class="scenario-list" aria-label="Client test scenarios">
+              <button class="scenario-card is-active" type="button" data-scenario="vacation">
+                <strong>Vacation planner - Maya</strong>
+                <span>Four-day Asheville family trip with food, hikes, rain backup, and pacing.</span>
+              </button>
+              <button class="scenario-card" type="button" data-scenario="date-night">
+                <strong>Date night - Chris</strong>
+                <span>Anniversary dinner, activity, timing, budget, and backup plan.</span>
+              </button>
+              <button class="scenario-card" type="button" data-scenario="business">
+                <strong>Business get-together - Priya</strong>
+                <span>Client dinner and morning workshop run-of-show with host checklist.</span>
+              </button>
+              <button class="scenario-card" type="button" data-scenario="road-trip">
+                <strong>Road trip - Evan</strong>
+                <span>Three-day Nashville-to-Savannah route with stops, drive times, and packing notes.</span>
+              </button>
+              <button class="scenario-card" type="button" data-scenario="pdf">
+                <strong>PDF cleanup - Dana</strong>
+                <span>Extract invoices into a spreadsheet and source-note the messy files.</span>
+              </button>
+              <button class="scenario-card" type="button" data-scenario="code">
+                <strong>Automation review - Jules</strong>
+                <span>Review a spreadsheet automation script and produce engineer-ready notes.</span>
+              </button>
+              <button class="scenario-card" type="button" data-scenario="brand">
+                <strong>Card and logo - Morgan</strong>
+                <span>Create a thank-you card message and small-business logo direction.</span>
+              </button>
+              <button class="scenario-card" type="button" data-scenario="decision">
+                <strong>Decision memo - Sam</strong>
+                <span>Compare three vendor options and recommend the best fit.</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="preview-card chat-panel">
+            <span class="tag">Agent response test</span>
+            <h3 id="testTitle">Vacation planner - Maya</h3>
+            <div class="chat-meta" aria-label="Scenario routing">
+              <div><strong>User</strong><span id="testUser">Maya - family traveler</span></div>
+              <div><strong>Routed agent</strong><span id="testAgent">Plan & Itinerary</span></div>
+              <div><strong>Status</strong><span id="testStatus">Answered and dashboard updated</span></div>
+            </div>
+            <div class="chat-window" id="chatWindow" aria-live="polite"></div>
+            <div class="chat-input-row">
+              <input id="chatInput" type="text" value="We need a 4-day vacation itinerary with kids, food, hikes, and rain backup." aria-label="Test chat message">
+              <button class="btn primary" id="chatSend" type="button">Send Test</button>
+            </div>
+            <div class="review-gates" aria-label="Required review gates">
+              <div class="review-gate"><strong>Agent route</strong><span id="gateRoute">Plan & Itinerary selected from request keywords.</span></div>
+              <div class="review-gate"><strong>Production pass</strong><span id="gateProduction">Specialist prepares the deliverable.</span></div>
+              <div class="review-gate"><strong>Expert review</strong><span id="gateExpert">Lead review plus engineer review when technical.</span></div>
+              <div class="review-gate"><strong>Fresh context</strong><span id="gateFresh">Second cold pass before customer review.</span></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -2053,10 +2354,29 @@
     const confirmedTitle = document.getElementById("confirmedTitle");
     const confirmedText = document.getElementById("confirmedText");
     const checkoutButton = document.getElementById("checkoutButton");
+    const dashboardTitle = document.getElementById("dashboardTitle");
+    const dashboardStatus = document.getElementById("dashboardStatus");
     const dashboardMeta = document.getElementById("dashboardMeta");
     const routeCard = document.getElementById("routeCard");
     const workCard = document.getElementById("workCard");
+    const leadReviewCard = document.getElementById("leadReviewCard");
+    const freshReviewCard = document.getElementById("freshReviewCard");
+    const customerReviewCard = document.getElementById("customerReviewCard");
+    const deliveryCard = document.getElementById("deliveryCard");
+    const reviewChoiceCard = document.getElementById("reviewChoiceCard");
     const deliverableCard = document.getElementById("deliverableCard");
+    const scenarioButtons = Array.from(document.querySelectorAll(".scenario-card"));
+    const testTitle = document.getElementById("testTitle");
+    const testUser = document.getElementById("testUser");
+    const testAgent = document.getElementById("testAgent");
+    const testStatus = document.getElementById("testStatus");
+    const chatWindow = document.getElementById("chatWindow");
+    const chatInput = document.getElementById("chatInput");
+    const chatSend = document.getElementById("chatSend");
+    const gateRoute = document.getElementById("gateRoute");
+    const gateProduction = document.getElementById("gateProduction");
+    const gateExpert = document.getElementById("gateExpert");
+    const gateFresh = document.getElementById("gateFresh");
 
     let selectedAgent = {
       family: "Gather & Extract",
@@ -2070,6 +2390,107 @@
       capacity: "1 active project, focused monthly runs",
       product: "studio-starter",
       checkout: "https://buy.stripe.com/fZu00i2MD3lO9n79b92880D"
+    };
+
+    let activeScenario = null;
+
+    const scenarioTemplates = {
+      vacation: {
+        title: "Vacation planner - Maya",
+        user: "Maya - family traveler",
+        request: "We need a 4-day Asheville vacation itinerary with two kids, good food, light hikes, one museum, and rain backup.",
+        agent: "Plan & Itinerary",
+        routeReason: "Vacation, itinerary, kids, food, hikes, and rain backup point to Plan & Itinerary.",
+        deliverable: "Four-day family itinerary with daily pacing, meal shortlist, hike options, rain backup, booking checklist, and helpful packing notes.",
+        reply: "I routed this to Plan & Itinerary. I will build a four-day plan with kid-friendly pacing, meal choices, hike difficulty notes, indoor backup options, and a reservation checklist before review.",
+        review: "Lead review checks pacing, geography, hours, constraints, and practical backup choices.",
+        expert: "Planner lead review applies; engineer review is not needed for this nontechnical itinerary.",
+        fresh: "Fresh-context pass checks whether a new reviewer can follow the trip without prior assumptions."
+      },
+      "date-night": {
+        title: "Date night - Chris",
+        user: "Chris - anniversary planner",
+        request: "Plan an anniversary date night under $220 with dinner, something memorable after, timing, parking, and a backup if it rains.",
+        agent: "Plan & Itinerary",
+        routeReason: "Date night, timing, budget, parking, and rain backup point to Plan & Itinerary.",
+        deliverable: "Date-night plan with dinner shortlist, activity options, timing, budget guardrails, parking notes, and rain backup.",
+        reply: "I routed this to Plan & Itinerary. I will prepare a polished date-night plan with a main path, backup path, timing, budget notes, and reservation prompts before review.",
+        review: "Lead review checks tone, timing, budget fit, and whether the backup plan is actually usable.",
+        expert: "Planner lead review applies; engineer review is not needed for this personal plan.",
+        fresh: "Fresh-context pass confirms the plan feels coherent and not overstuffed."
+      },
+      business: {
+        title: "Business get-together - Priya",
+        user: "Priya - client host",
+        request: "We have eight clients coming for dinner and a morning workshop. I need a run-of-show, host checklist, seating notes, and follow-up plan.",
+        agent: "Plan & Itinerary",
+        routeReason: "Business get-together, workshop, run-of-show, and host checklist point to Plan & Itinerary.",
+        deliverable: "Client dinner and workshop run-of-show with agenda, host checklist, seating considerations, materials list, and follow-up notes.",
+        reply: "I routed this to Plan & Itinerary. I will prepare the dinner and workshop flow, host checklist, materials list, and follow-up prompts in a business-ready tone.",
+        review: "Lead review checks professional tone, sequence, timing, host duties, and guest experience.",
+        expert: "Planner lead review applies; engineer review is only added if technical materials are requested.",
+        fresh: "Fresh-context pass checks whether the event plan is clear to someone stepping in cold."
+      },
+      "road-trip": {
+        title: "Road trip - Evan",
+        user: "Evan - road trip driver",
+        request: "Build a three-day Nashville to Savannah road trip with scenic stops, drive times, pet-friendly breaks, and packing notes.",
+        agent: "Plan & Itinerary",
+        routeReason: "Road trip, route, scenic stops, drive times, and packing notes point to Plan & Itinerary.",
+        deliverable: "Three-day route with drive windows, stop shortlist, pet-friendly breaks, overnight pacing, weather backup, and packing notes.",
+        reply: "I routed this to Plan & Itinerary. I will build the route with sensible drive blocks, stop options, pet breaks, overnight pacing, and practical packing notes.",
+        review: "Lead review checks route logic, timing realism, stop quality, and backup options.",
+        expert: "Planner lead review applies; engineer review is not needed unless route data tooling is requested.",
+        fresh: "Fresh-context pass checks that the road trip can be followed without extra explanation."
+      },
+      pdf: {
+        title: "PDF cleanup - Dana",
+        user: "Dana - operations manager",
+        request: "Extract totals and vendors from 38 invoice PDFs into a spreadsheet and include source notes for the messy pages.",
+        agent: "Gather & Extract",
+        routeReason: "PDFs, extraction, spreadsheet, invoices, and source notes point to Gather & Extract.",
+        deliverable: "Clean spreadsheet, extracted fields, source notes, exception list, and quality flags for messy invoice pages.",
+        reply: "I routed this to Gather & Extract. I will structure the invoice fields, flag messy pages, and prepare a clean spreadsheet plus source notes for review.",
+        review: "Lead review checks extraction completeness, field consistency, exceptions, and source-note usefulness.",
+        expert: "Data review applies; engineer review is added if automation scripts are produced.",
+        fresh: "Fresh-context pass samples the source-to-row trail before customer review."
+      },
+      code: {
+        title: "Automation review - Jules",
+        user: "Jules - team lead",
+        request: "Review this spreadsheet automation script, find risks, improve the formula handoff, and give engineer-ready notes.",
+        agent: "Build & Automate",
+        routeReason: "Automation script, formulas, risks, and engineer-ready notes point to Build & Automate.",
+        deliverable: "Code and spreadsheet review notes, risk list, test checklist, suggested fixes, and engineer-ready handoff.",
+        reply: "I routed this to Build & Automate. I will review the script and spreadsheet logic, produce risks and fixes, and mark anything that needs engineer attention.",
+        review: "Lead review checks correctness, risk coverage, test clarity, and implementation practicality.",
+        expert: "Engineer review is required because the request involves code and spreadsheet automation.",
+        fresh: "Fresh-context pass re-reads the handoff without the first reviewer context."
+      },
+      brand: {
+        title: "Card and logo - Morgan",
+        user: "Morgan - small business owner",
+        request: "Create a thank-you card message and logo direction for a new local catering business.",
+        agent: "Create & Polish",
+        routeReason: "Card message, logo direction, and brand tone point to Create & Polish.",
+        deliverable: "Thank-you card copy, tone options, logo direction, color notes, and print-ready next-step checklist.",
+        reply: "I routed this to Create & Polish. I will draft the thank-you card message and brand direction with practical file and print notes before review.",
+        review: "Lead review checks voice, usefulness, print constraints, and brand consistency.",
+        expert: "Creative lead review applies; engineer review is not needed unless file automation is requested.",
+        fresh: "Fresh-context pass checks that the message and brand direction work for the intended audience."
+      },
+      decision: {
+        title: "Decision memo - Sam",
+        user: "Sam - buyer",
+        request: "Compare three scheduling vendors and recommend one for a small service business with simple reminders.",
+        agent: "Review & Decide",
+        routeReason: "Compare, recommend, vendor options, and decision memo point to Review & Decide.",
+        deliverable: "Vendor comparison brief with criteria, tradeoffs, recommendation, risk notes, and next-step questions.",
+        reply: "I routed this to Review & Decide. I will build a criteria-based comparison, note tradeoffs and risks, and prepare a recommendation for review.",
+        review: "Lead review checks source quality, criteria fit, fairness, and recommendation clarity.",
+        expert: "Research lead review applies; engineer review is added if integration or implementation claims are made.",
+        fresh: "Fresh-context pass checks whether the recommendation still follows from the evidence."
+      }
     };
 
     function closeMenu() {
@@ -2094,10 +2515,19 @@
         checkoutButton.removeAttribute("target");
         checkoutButton.setAttribute("rel", "noopener");
       }
-      dashboardMeta.textContent = `${selectedAgent.family} - ${selectedPlan.plan} - next update after lead review`;
-      routeCard.textContent = `${selectedAgent.persona} assigned.`;
-      workCard.textContent = `Preparing: ${selectedAgent.deliverable}.`;
-      deliverableCard.textContent = `${selectedAgent.deliverable}.`;
+      if (!activeScenario) {
+        dashboardTitle.textContent = `${selectedAgent.family} project`;
+        dashboardStatus.textContent = "Lead review active";
+        dashboardMeta.textContent = `${selectedAgent.family} - ${selectedPlan.plan} - next update after double review`;
+        routeCard.textContent = `${selectedAgent.persona} assigned.`;
+        workCard.textContent = `Preparing: ${selectedAgent.deliverable}.`;
+        leadReviewCard.textContent = "Lead review checks accuracy, fit, formatting, and delivery readiness.";
+        freshReviewCard.textContent = "Fresh-context review checks the work without relying on the first pass.";
+        customerReviewCard.textContent = "Waiting for your approval or adjustment request.";
+        deliveryCard.textContent = "Final handoff appears after customer review.";
+        reviewChoiceCard.textContent = "Approve, ask a question, or request an adjustment before the work is considered final.";
+        deliverableCard.textContent = `${selectedAgent.deliverable}.`;
+      }
     }
 
     function normalizeProduct(value) {
@@ -2106,6 +2536,102 @@
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, "-")
         .replace(/^-|-$/g, "");
+    }
+
+    function setSelectedAgentCard(card, options = {}) {
+      const button = card.querySelector(".agent-select");
+      agentCards.forEach((item) => item.classList.remove("is-selected"));
+      agentButtons.forEach((item) => item.setAttribute("aria-pressed", "false"));
+      card.classList.add("is-selected");
+      if (button) {
+        button.setAttribute("aria-pressed", "true");
+      }
+      selectedAgent = {
+        family: card.dataset.agent,
+        persona: card.dataset.persona,
+        deliverable: card.dataset.deliverable
+      };
+      if (!options.keepScenario) {
+        activeScenario = null;
+      }
+      updatePreview();
+    }
+
+    function selectAgentFamily(family) {
+      const card = agentCards.find((item) => item.dataset.agent === family);
+      if (card) {
+        setSelectedAgentCard(card, { keepScenario: true });
+      }
+    }
+
+    function routeAgentFamily(text) {
+      const value = String(text || "").toLowerCase();
+      if (/(vacation|itinerary|date night|anniversary|business get|workshop|dinner|road trip|route|packing|reservation|travel|trip)/.test(value)) {
+        return "Plan & Itinerary";
+      }
+      if (/(scrape|extract|pdf|ocr|invoice|csv|spreadsheet cleanup|table|source notes)/.test(value)) {
+        return "Gather & Extract";
+      }
+      if (/(card|logo|brand|social|copy|message|story|email|design)/.test(value)) {
+        return "Create & Polish";
+      }
+      if (/(code|script|automation|formula|engineer|runbook|workflow)/.test(value)) {
+        return "Build & Automate";
+      }
+      if (/(research|compare|vendor|decision|memo|recommend|brief)/.test(value)) {
+        return "Review & Decide";
+      }
+      return selectedAgent.family;
+    }
+
+    function addChatMessage(role, text) {
+      const message = document.createElement("div");
+      message.className = `chat-message ${role}`;
+      message.textContent = text;
+      chatWindow.appendChild(message);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    function scenarioAgentReply(scenario, message) {
+      const routedFamily = routeAgentFamily(message);
+      if (routedFamily !== scenario.agent) {
+        return `I would route this new message to ${routedFamily}. For this launch scenario, I am keeping the selected test packet visible so the dashboard stays auditable.`;
+      }
+      return scenario.reply;
+    }
+
+    function applyScenario(key) {
+      const scenario = scenarioTemplates[key] || scenarioTemplates.vacation;
+      activeScenario = scenario;
+      scenarioButtons.forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.scenario === key);
+      });
+      selectAgentFamily(scenario.agent);
+
+      testTitle.textContent = scenario.title;
+      testUser.textContent = scenario.user;
+      testAgent.textContent = scenario.agent;
+      testStatus.textContent = "Answered and dashboard updated";
+      chatInput.value = scenario.request;
+      chatWindow.innerHTML = "";
+      addChatMessage("customer", scenario.request);
+      addChatMessage("agent", scenario.reply);
+
+      dashboardTitle.textContent = scenario.title;
+      dashboardStatus.textContent = "Double review active";
+      dashboardMeta.textContent = `${scenario.agent} - ${selectedPlan.plan} - routed from test user after Stripe`;
+      routeCard.textContent = scenario.routeReason;
+      workCard.textContent = scenario.deliverable;
+      leadReviewCard.textContent = scenario.review;
+      freshReviewCard.textContent = scenario.fresh;
+      customerReviewCard.textContent = "Customer can approve, ask a question, or request an adjustment after both internal reviews.";
+      deliveryCard.textContent = "Final delivery waits for customer review signoff.";
+      reviewChoiceCard.textContent = "Approve, ask a question, or request a focused adjustment; delivery is not final until this checkpoint closes.";
+      deliverableCard.textContent = scenario.deliverable;
+      gateRoute.textContent = scenario.routeReason;
+      gateProduction.textContent = "Specialist production pass prepares the paid deliverable before review.";
+      gateExpert.textContent = scenario.expert;
+      gateFresh.textContent = scenario.fresh;
     }
 
     function setSelectedPlan(card) {
@@ -2145,7 +2671,7 @@
 
       if (payment === "confirmed") {
         confirmedTitle.textContent = "Payment return: confirmed";
-        confirmedText.textContent = `This return link says ${selectedPlan.plan} checkout was confirmed. Complete the intake below so we can scope the job, confirm the right agent path, and start the reviewed work.`;
+        confirmedText.textContent = `This return link says ${selectedPlan.plan} checkout was confirmed. Next, Studio captures intake, confirms the route, opens the dashboard, runs production, lead review, fresh-context review, customer review, and final delivery.`;
         window.setTimeout(() => {
           document.getElementById("intake").scrollIntoView({ behavior: "smooth", block: "start" });
         }, 120);
@@ -2181,16 +2707,7 @@
     agentButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const card = button.closest(".agent-card");
-        agentCards.forEach((item) => item.classList.remove("is-selected"));
-        agentButtons.forEach((item) => item.setAttribute("aria-pressed", "false"));
-        card.classList.add("is-selected");
-        button.setAttribute("aria-pressed", "true");
-        selectedAgent = {
-          family: card.dataset.agent,
-          persona: card.dataset.persona,
-          deliverable: card.dataset.deliverable
-        };
-        updatePreview();
+        setSelectedAgentCard(card);
       });
     });
 
@@ -2198,10 +2715,45 @@
       button.addEventListener("click", () => {
         const card = button.closest(".plan-card");
         setSelectedPlan(card);
+        if (activeScenario) {
+          const currentKey = scenarioButtons.find((item) => item.classList.contains("is-active"))?.dataset.scenario || "vacation";
+          applyScenario(currentKey);
+        }
       });
     });
 
+    scenarioButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        applyScenario(button.dataset.scenario);
+      });
+    });
+
+    chatSend.addEventListener("click", () => {
+      const message = chatInput.value.trim();
+      if (!message) return;
+      const scenario = activeScenario || scenarioTemplates.vacation;
+      const routedFamily = routeAgentFamily(message);
+      if (routedFamily !== selectedAgent.family) {
+        selectAgentFamily(routedFamily);
+      }
+      addChatMessage("customer", message);
+      addChatMessage("agent", scenarioAgentReply(scenario, message));
+      testAgent.textContent = routedFamily;
+      testStatus.textContent = "Answered and route checked";
+      dashboardMeta.textContent = `${routedFamily} - ${selectedPlan.plan} - chat route checked`;
+      routeCard.textContent = `Latest chat routed to ${routedFamily}. ${scenario.routeReason}`;
+      gateRoute.textContent = `Latest chat route: ${routedFamily}.`;
+    });
+
+    chatInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        chatSend.click();
+      }
+    });
+
     applyPaymentReturn();
+    applyScenario("vacation");
   </script>
 </body>
 </html>
