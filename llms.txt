@@ -1,0 +1,27 @@
+# WeBot Studio
+
+> WeBot Studio is the checkout, intake, dashboard, and review surface for WeBot Agency agent jobs.
+
+Canonical site: https://webot.studio/
+Agency site: https://webot.agency/
+
+## What customers can buy
+
+- Starter monthly access: $49/mo for one focused active project path.
+- Plus monthly access: $149/mo for more recurring personal or business work.
+- Business monthly access: $399/mo for concurrent projects, dashboard history, and workflow setup.
+- Small one-time reviewed job: $49 for one small scoped deliverable.
+- Standard one-time reviewed job: $129 for one fuller deliverable with more source material or formatting.
+- Deep one-time reviewed job: $299 for deeper research, heavier cleanup, complex build help, or larger reviewed output.
+
+## Agent families
+
+- Plan & Itinerary: vacations, date nights, business get-togethers, road trips, route timing, reservation notes, and backup plans.
+- Gather & Extract: scraping, OCR, PDFs, tables, lead lists, invoices, and messy source cleanup.
+- Create & Polish: social posts, cards, wishes, story work, tone rewrites, logos, and business cards.
+- Build & Automate: code, spreadsheets, formulas, automations, and agent runbooks.
+- Review & Decide: research, comparisons, business summaries, second opinions, and quality reviews.
+
+## Dashboard path
+
+Paid customer work moves through payment + intake, agent route, agent draft, lead review, fresh-context review, customer approval, and complete delivery.

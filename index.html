@@ -6,15 +6,21 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <title>WeBot Studio - Pick an Agent, Plan It, Watch the Work Move</title>
+  <title>WeBot Studio | AI Agent Jobs, One-Time Deliverables & Reviewed Dashboards</title>
   <meta name="description" content="WeBot Studio helps customers choose a WeBot agent for itinerary planning, vacations, date nights, business get-togethers, road trips, documents, code, cards, research, and reviewed delivery through a clear customer dashboard.">
-  <meta name="keywords" content="AI itinerary planner, vacation planner, date night planner, road trip planner, business get together planner, AI agent dashboard, Stripe checkout AI services, reviewed AI deliverables">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#090b10">
   <link rel="canonical" href="https://webot.studio/">
-  <meta property="og:title" content="WeBot Studio - We Bot You">
+  <meta property="og:title" content="WeBot Studio | Pick an Agent, Pay, Track Reviewed Work">
   <meta property="og:description" content="Choose an agent family, pick access, open intake, and watch itinerary plans, documents, code, cards, research, and other jobs move toward reviewed delivery.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://webot.studio/">
+  <meta property="og:site_name" content="WeBot Studio">
+  <meta property="og:image" content="https://webot.studio/apple-touch-icon.png">
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="WeBot Studio | AI Agent Jobs With Reviewed Delivery">
+  <meta name="twitter:description" content="Monthly access and one-time AI agent jobs for itineraries, documents, code, cards, research, and decisions.">
+  <meta name="twitter:image" content="https://webot.studio/apple-touch-icon.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,6 +35,14 @@
         "description": "A customer-facing Studio for selecting reviewed WeBot agent work, paying through Stripe Checkout, opening intake, and following dashboard checkpoints."
       },
       {
+        "@type": "WebPage",
+        "@id": "https://webot.studio/#webpage",
+        "url": "https://webot.studio/",
+        "name": "WeBot Studio | AI Agent Jobs With Reviewed Delivery",
+        "description": "Choose monthly access or one-time reviewed AI agent jobs, then follow the work through intake, routing, draft, lead review, fresh-context review, customer review, and delivery.",
+        "about": { "@id": "https://webot.studio/#services" }
+      },
+      {
         "@type": "Service",
         "@id": "https://webot.studio/#services",
         "name": "WeBot Studio reviewed agent delivery",
@@ -36,15 +50,32 @@
         "serviceType": "Reviewed AI agent delivery",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Studio agent families",
+          "name": "Studio access and one-time jobs",
           "itemListElement": [
-            { "@type": "Offer", "name": "Plan & Itinerary for vacations, date nights, business get-togethers, and road trips" },
-            { "@type": "Offer", "name": "Gather & Extract for scraping, OCR, PDFs, and data cleanup" },
-            { "@type": "Offer", "name": "Create & Polish for cards, copy, social posts, and brand assets" },
-            { "@type": "Offer", "name": "Build & Automate for code, spreadsheets, automations, and runbooks" },
-            { "@type": "Offer", "name": "Review & Decide for research, comparison briefs, and decisions" }
+            { "@type": "Offer", "name": "Starter monthly access", "price": "49", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+            { "@type": "Offer", "name": "Plus monthly access", "price": "149", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+            { "@type": "Offer", "name": "Business monthly access", "price": "399", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+            { "@type": "Offer", "name": "Small one-time reviewed job", "price": "49", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+            { "@type": "Offer", "name": "Standard one-time reviewed job", "price": "129", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+            { "@type": "Offer", "name": "Deep one-time reviewed job", "price": "299", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
           ]
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://webot.studio/#faq-schema",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What can I buy in WeBot Studio?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Customers can choose monthly access for ongoing work or one-time reviewed jobs for a single deliverable, including itinerary planning, document extraction, code and spreadsheet review, cards, research, and decision briefs." }
+          },
+          {
+            "@type": "Question",
+            "name": "How does reviewed delivery work?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Studio shows customer-facing checkpoints for intake, route selection, draft work, lead review, fresh-context review, customer review, and final delivery." }
+          }
+        ]
       }
     ]
   }
@@ -2151,7 +2182,7 @@
           <div>
             <p class="section-kicker">Read-only dashboard</p>
             <h2>Customers see state, not internals.</h2>
-            <p class="section-copy">The board shows where the project is, what is next, and when to expect the next reviewed update. It does not expose private reasoning, vendor names, or hidden implementation details.</p>
+            <p class="section-copy">The board shows the customer path from paid intake to route selection, draft, lead review, fresh-context review, customer approval, and final delivery. It does not expose private reasoning, vendor names, or hidden implementation details.</p>
           </div>
           <p class="soft-note">This kanban is read-only by design. Customer actions happen at review and request-adjustment checkpoints.</p>
         </div>
@@ -2160,28 +2191,28 @@
           <div class="dashboard-head">
             <div>
               <h3 id="dashboardTitle">June launch help</h3>
-              <p id="dashboardMeta">Gather & Extract - Starter - next update after lead review</p>
+              <p id="dashboardMeta">Gather & Extract - Starter - next update after double review</p>
             </div>
             <span class="status-pill" id="dashboardStatus">Lead review active</span>
           </div>
 
           <div class="kanban" aria-label="Read-only project states">
             <div class="kanban-col">
-              <h4>Intake</h4>
+              <h4>Payment + Intake</h4>
               <div class="kanban-card">
                 <strong>Request received</strong>
-                <p>Context captured. Files would stay inside the active-work window.</p>
+                <p>Checkout return and intake captured. Files stay inside the active-work window.</p>
               </div>
             </div>
             <div class="kanban-col">
-              <h4>Setup</h4>
+              <h4>Agent Route</h4>
               <div class="kanban-card">
                 <strong>Route selected</strong>
                 <p id="routeCard">Web Scout + Doc Miner assigned.</p>
               </div>
             </div>
             <div class="kanban-col">
-              <h4>Working</h4>
+              <h4>Agent Draft</h4>
               <div class="kanban-card">
                 <strong>Draft in progress</strong>
                 <p id="workCard">Preparing the first clean research pack.</p>
@@ -2202,11 +2233,11 @@
               </div>
             </div>
             <div class="kanban-col">
-              <h4>Customer Review</h4>
+              <h4>Approval</h4>
               <div class="empty-state" id="customerReviewCard">Waiting for your approval or adjustment request.</div>
             </div>
             <div class="kanban-col">
-              <h4>Delivered</h4>
+              <h4>Complete</h4>
               <div class="empty-state" id="deliveryCard">Final handoff appears after customer review.</div>
             </div>
           </div>
