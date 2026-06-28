@@ -1255,8 +1255,8 @@
       .wrap,
       .footer-inner,
       .nav-inner {
-        width: calc(100vw - 32px);
-        max-width: calc(100vw - 32px);
+        width: min(390px, calc(100vw - 28px));
+        max-width: min(390px, calc(100vw - 28px));
         min-width: 0;
         margin-left: auto;
         margin-right: auto;
@@ -1304,11 +1304,25 @@
         width: 100%;
         max-width: 100%;
         min-width: 0;
-        margin-left: 0;
-        margin-right: 0;
+        margin-left: auto;
+        margin-right: auto;
         transform: none;
         left: auto;
         right: auto;
+      }
+
+      section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .hero {
+        padding-top: 34px;
+        padding-bottom: 30px;
+      }
+
+      .section-head {
+        margin-bottom: 16px;
       }
 
       .hero-grid,
@@ -1328,7 +1342,7 @@
 
       h1 {
         max-width: 100%;
-        font-size: clamp(32px, 9vw, 36px);
+        font-size: clamp(40px, 10vw, 46px);
         line-height: 1.05;
       }
 
@@ -1355,8 +1369,21 @@
       }
 
       .lead {
-        font-size: 16px;
-        line-height: 1.58;
+        font-size: 17px;
+        line-height: 1.52;
+      }
+
+      .section-copy,
+      .soft-note,
+      .preview-card p,
+      .agent-card p,
+      .plan-card p,
+      .plan-card li,
+      .form-note,
+      .kanban-card p,
+      .contact-box p {
+        font-size: 15.5px;
+        line-height: 1.5;
       }
 
       .hero-actions,
@@ -1427,8 +1454,8 @@
       .wrap.privacy,
       .footer-inner,
       .nav-inner {
-        width: calc(100vw - 32px) !important;
-        max-width: calc(100vw - 32px) !important;
+        width: min(390px, calc(100vw - 28px)) !important;
+        max-width: min(390px, calc(100vw - 28px)) !important;
         min-width: 0 !important;
         margin-left: auto !important;
         margin-right: auto !important;
@@ -1463,9 +1490,9 @@
       .wrap.privacy,
       .footer-inner,
       .nav-inner {
-        width: min(320px, calc(100vw - 48px)) !important;
-        max-width: min(320px, calc(100vw - 48px)) !important;
-        margin-left: 24px !important;
+        width: min(390px, calc(100vw - 28px)) !important;
+        max-width: min(390px, calc(100vw - 28px)) !important;
+        margin-left: auto !important;
         margin-right: auto !important;
       }
 
@@ -1475,9 +1502,9 @@
       .trust-strip,
       .app-shell,
       .dashboard {
-        width: min(320px, calc(100vw - 48px)) !important;
-        max-width: min(320px, calc(100vw - 48px)) !important;
-        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
         margin-right: auto !important;
       }
 
