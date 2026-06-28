@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <title>WeBot Studio | Reviewed AI Agent Jobs</title>
-  <meta name="description" content="WeBot Studio sells monthly access and one-time reviewed AI agent jobs for itineraries, documents, code, cards, research, and decisions.">
+  <meta name="description" content="WeBot Studio sells monthly access and one-time reviewed AI agent jobs for content, extraction, media conversion, web development, SEO, career prep, business planning, and itineraries.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#090b10">
   <link rel="canonical" href="https://webot.studio/">
@@ -22,7 +22,7 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="WeBot Studio | Reviewed AI Agent Jobs">
-  <meta name="twitter:description" content="Monthly access and one-time reviewed AI agent jobs for itineraries, documents, code, cards, research, and decisions.">
+  <meta name="twitter:description" content="Monthly access and one-time reviewed AI agent jobs for content, extraction, media conversion, web development, SEO, career prep, business planning, and itineraries.">
   <meta name="twitter:image" content="https://webot.studio/assets/og-webot-studio.png">
   <script type="application/ld+json">
   {
@@ -63,7 +63,7 @@
         "@id": "https://webot.studio/#webpage",
         "url": "https://webot.studio/",
         "name": "WeBot Studio | AI Agent Jobs With Reviewed Delivery",
-        "description": "Choose monthly access or one-time reviewed AI agent jobs, then follow the work through intake, routing, draft, lead review, fresh-context review, customer review, and delivery.",
+        "description": "Choose monthly access or one-time reviewed AI agent jobs for content, extraction, media conversion, web development, SEO, career prep, business planning, and itineraries, then follow the work through intake, routing, draft, lead review, customer review, and delivery.",
         "isPartOf": { "@id": "https://webot.studio/#website" },
         "about": { "@id": "https://webot.studio/#services" }
       },
@@ -93,7 +93,7 @@
           {
             "@type": "Question",
             "name": "What can I buy in WeBot Studio?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Customers can choose monthly access for ongoing work or one-time reviewed jobs for a single deliverable, including itinerary planning, document extraction, code and spreadsheet review, cards, research, and decision briefs." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Customers can choose monthly access for ongoing work or one-time reviewed jobs for a single deliverable, including copy polish, document extraction, text to MP3 audio, video transcription, photo enhancement, presentations and graphs, web development, SEO, business planning, marketing strategies, resume review, interview preparation, transcription, itinerary planning, research, and decision briefs." }
           },
           {
             "@type": "Question",
@@ -683,6 +683,18 @@
       background: var(--green);
     }
 
+    .agent-card:nth-child(6)::before {
+      background: var(--teal);
+    }
+
+    .agent-card:nth-child(7)::before {
+      background: var(--rose);
+    }
+
+    .agent-card:nth-child(8)::before {
+      background: var(--blue);
+    }
+
     .agent-card h3,
     .plan-card h3 {
       margin-bottom: 7px;
@@ -847,6 +859,34 @@
     .payment-box {
       border: 1px dashed rgba(255, 209, 102, 0.48);
       background: rgba(255, 209, 102, 0.06);
+    }
+
+    .tier-table {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .tier-row {
+      display: grid;
+      grid-template-columns: minmax(84px, 0.8fr) repeat(3, minmax(48px, 1fr));
+      gap: 8px;
+      align-items: center;
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.16);
+    }
+
+    .tier-row strong {
+      color: var(--text);
+    }
+
+    .tier-row span {
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
 
     .checkout-line {
@@ -1852,7 +1892,7 @@
         <div class="hero-copy">
           <p class="eyebrow">WeBot Studio</p>
           <h1><span>Pick an agent.</span> <span>Watch the work</span> <span>move.</span></h1>
-          <p class="lead">Choose the agent family for the job, including itinerary planning for vacations, date nights, business get-togethers, and road trips. Pick monthly access or a clear one-time job, pay through Stripe Checkout, and land in a calm dashboard that shows customer-facing checkpoints.</p>
+          <p class="lead">Choose the agent family for the job, from copy polish and extraction to media conversion, web development, SEO, career prep, business planning, and itineraries. Pick monthly access or a clear one-time job, pay through Stripe Checkout, and land in a calm dashboard that shows customer-facing checkpoints.</p>
           <div class="hero-actions">
             <a class="btn primary" href="#agents">Choose Your Agent</a>
             <a class="btn secondary" href="#dashboard">See Dashboard</a>
@@ -1890,9 +1930,9 @@
               <p class="form-note">Stripe checkout and human intake handle the next step.</p>
             </div>
             <div class="mini-panel listener-card">
-              <span class="status-pill">Listener ready</span>
+              <span class="status-pill">Intake ready</span>
               <h2>Warm intake, calm handoff.</h2>
-              <p>A lightweight listener is ready to receive your request, then the right worker takes over. The dashboard uses friendly states, not internal tool names.</p>
+              <p>Studio is ready to receive your request, confirm the route, and keep the handoff calm. The dashboard uses friendly states, not private implementation details.</p>
             </div>
           </div>
         </div>
@@ -1905,54 +1945,87 @@
           <div>
             <p class="section-kicker">Agent family chooser</p>
             <h2>Start with the kind of work.</h2>
-            <p class="section-copy">Each family routes to focused helpers, a lead review pass, and a customer review step before final delivery. Higher access buys capacity, priority, complexity, and convenience, not lower or higher care.</p>
+          <p class="section-copy">Each family routes to focused reviewed work, a lead review pass, and a customer review step before final delivery. Higher access buys capacity, priority, complexity, and convenience, not lower or higher care.</p>
           </div>
           <p class="soft-note">Select a family to update your Studio path. Full workflow routing begins after checkout or contact.</p>
         </div>
 
         <div class="agent-grid" role="list" aria-label="Agent families">
-          <article class="agent-card is-selected" role="listitem" data-agent="Gather & Extract" data-persona="Web Scout + Doc Miner" data-deliverable="Clean research pack, spreadsheet, source notes, or extracted document set">
-            <h3>Gather & Extract</h3>
-            <p>Scraping, research capture, OCR, PDFs, tables, lead lists, and messy source cleanup.</p>
-            <ul>
-              <li>Web Scout</li>
-              <li>Doc Miner</li>
-              <li>Data Fixer</li>
-            </ul>
-            <button class="card-action agent-select" type="button" aria-pressed="true">Select Gather & Extract</button>
-          </article>
-
-          <article class="agent-card" role="listitem" data-agent="Create & Polish" data-persona="Voice Maker + Cardsmith" data-deliverable="Polished copy, greeting card, social post, image card, or email-ready content">
+          <article class="agent-card is-selected" role="listitem" data-agent="Create & Polish" data-persona="Voice Maker + Presentation Builder" data-deliverable="Polished copy, presentation, graph, greeting card, social post, or email-ready content">
             <h3>Create & Polish</h3>
-            <p>Social posts, greeting cards, wishes, story work, tone rewrites, logos, and business cards.</p>
+            <p>Copy polish, social posts, greeting cards, story work, presentations and graphs, business cards, and brand direction.</p>
             <ul>
-              <li>Cardsmith</li>
-              <li>Brandsmith</li>
-              <li>Storysmith</li>
+              <li>Copy polish</li>
+              <li>Presentation draft</li>
+              <li>Graph cleanup</li>
             </ul>
-            <button class="card-action agent-select" type="button" aria-pressed="false">Select Create & Polish</button>
+            <button class="card-action agent-select" type="button" aria-pressed="true">Select</button>
           </article>
 
-          <article class="agent-card" role="listitem" data-agent="Build & Automate" data-persona="Code Partner + Sheet Builder" data-deliverable="Code, formulas, workflow runbook, reusable skill, or automation plan">
-            <h3>Build & Automate</h3>
-            <p>Code writing, code review, spreadsheet formulas, workflow automations, and agent runbooks.</p>
+          <article class="agent-card" role="listitem" data-agent="Gather & Extract" data-persona="Web Scout + Doc Miner" data-deliverable="Clean research pack, spreadsheet, source notes, extracted document set, or transcription package">
+            <h3>Gather & Extract</h3>
+            <p>Research capture, OCR, PDFs, tables, lead lists, transcription, video transcription, and messy source cleanup.</p>
             <ul>
-              <li>Code Partner</li>
-              <li>Review Lead</li>
-              <li>Skillwright</li>
+              <li>Research capture</li>
+              <li>Document extraction</li>
+              <li>Transcription</li>
             </ul>
-            <button class="card-action agent-select" type="button" aria-pressed="false">Select Build & Automate</button>
+            <button class="card-action agent-select" type="button" aria-pressed="false">Select</button>
+          </article>
+
+          <article class="agent-card" role="listitem" data-agent="Media & Convert" data-persona="Audio Desk + Image Finisher" data-deliverable="Text to MP3 audio, photo enhancement, video transcription cleanup, resized media, or conversion-ready files">
+            <h3>Media & Convert</h3>
+            <p>Text to MP3 audio, photo enhancement, video transcription cleanup, format conversion, and lightweight media prep.</p>
+            <ul>
+              <li>Text to MP3 audio</li>
+              <li>Photo enhancement</li>
+              <li>Media conversion</li>
+            </ul>
+            <button class="card-action agent-select" type="button" aria-pressed="false">Select</button>
+          </article>
+
+          <article class="agent-card" role="listitem" data-agent="Build & Automate" data-persona="Code Partner + Site Builder" data-deliverable="Website update, code review, spreadsheet formula, workflow runbook, or automation plan">
+            <h3>Build & Automate</h3>
+            <p>Web development, code review, spreadsheet formulas, workflow automations, and practical implementation notes.</p>
+            <ul>
+              <li>Web development</li>
+              <li>Automation review</li>
+              <li>Spreadsheet formulas</li>
+            </ul>
+            <button class="card-action agent-select" type="button" aria-pressed="false">Select</button>
+          </article>
+
+          <article class="agent-card" role="listitem" data-agent="Growth & Market" data-persona="SEO Desk + Campaign Planner" data-deliverable="SEO brief, marketing strategy, campaign outline, positioning notes, or content plan">
+            <h3>Growth & Market</h3>
+            <p>SEO, marketing strategies, content calendars, offer positioning, launch notes, and campaign planning.</p>
+            <ul>
+              <li>SEO brief</li>
+              <li>Marketing strategy</li>
+              <li>Content plan</li>
+            </ul>
+            <button class="card-action agent-select" type="button" aria-pressed="false">Select</button>
           </article>
 
           <article class="agent-card" role="listitem" data-agent="Review & Decide" data-persona="Research Desk + Quality Desk" data-deliverable="Decision memo, options summary, fact-check pack, or executive brief">
             <h3>Review & Decide</h3>
-            <p>Research, comparisons, business summaries, second opinions, and final quality reviews.</p>
+            <p>Research, comparisons, business planning, business summaries, second opinions, and final quality reviews.</p>
             <ul>
-              <li>Research Desk</li>
-              <li>Brief Builder</li>
-              <li>Quality Desk</li>
+              <li>Business planning</li>
+              <li>Decision memo</li>
+              <li>Quality review</li>
             </ul>
-            <button class="card-action agent-select" type="button" aria-pressed="false">Select Review & Decide</button>
+            <button class="card-action agent-select" type="button" aria-pressed="false">Select</button>
+          </article>
+
+          <article class="agent-card" role="listitem" data-agent="Career & Prep" data-persona="Resume Reviewer + Interview Coach" data-deliverable="Resume review, interview preparation plan, cover letter polish, or application-ready notes">
+            <h3>Career & Prep</h3>
+            <p>Resume review, interview preparation, cover letter polish, role research, and practice questions.</p>
+            <ul>
+              <li>Resume review</li>
+              <li>Interview prep</li>
+              <li>Cover letter polish</li>
+            </ul>
+            <button class="card-action agent-select" type="button" aria-pressed="false">Select</button>
           </article>
 
           <article class="agent-card" role="listitem" data-agent="Plan & Itinerary" data-persona="Trip Planner + Host Planner" data-deliverable="Day-by-day itinerary, date plan, business gathering run-of-show, road-trip route, reservation checklist, backup ideas, and helpful supply list">
@@ -1964,7 +2037,7 @@
               <li>Host Planner</li>
               <li>Route Builder</li>
             </ul>
-            <button class="card-action agent-select" type="button" aria-pressed="false">Select Plan & Itinerary</button>
+            <button class="card-action agent-select" type="button" aria-pressed="false">Select</button>
           </article>
         </div>
       </div>
@@ -1976,9 +2049,9 @@
           <div>
             <p class="section-kicker">Plans and access</p>
             <h2>Choose access, then pay securely.</h2>
-            <p class="section-copy">Pick a monthly plan for recurring work, or choose a one-time job when you only need one reviewed deliverable. The selected checkout button opens Stripe.</p>
+            <p class="section-copy">Pick a live monthly plan for recurring work, or choose a one-time reviewed job when you only need one deliverable. The selected checkout button opens Stripe for the current live products.</p>
           </div>
-          <p class="soft-note">All paid work gets lead review and fresh-context review before delivery. Higher monthly plans and larger one-time jobs buy more capacity, complexity, priority, and setup help.</p>
+          <p class="soft-note">All paid work gets lead review and fresh-context review before delivery. Higher monthly plans and larger one-time jobs buy more capacity, complexity, priority, and setup help. Prepared platform tiers are not connected to checkout yet.</p>
         </div>
 
         <div class="flow-grid">
@@ -2006,7 +2079,7 @@
               <ul>
                 <li>Multiple agent families</li>
                 <li>Larger context and files</li>
-                <li>Priority reviewed-delivery queue</li>
+                <li>Priority review timing</li>
               </ul>
               <button class="card-action plan-select" type="button" aria-pressed="false">Select Plus</button>
             </article>
@@ -2085,12 +2158,12 @@
           <div class="preview-stack">
             <article class="preview-card">
               <span class="tag">Build screen</span>
-              <h3 id="buildTitle">Gather & Extract project</h3>
-              <p id="buildText">Web Scout + Doc Miner will turn your sources into a clean research pack, spreadsheet, source notes, or extracted document set.</p>
+              <h3 id="buildTitle">Create & Polish project</h3>
+              <p id="buildText">Voice Maker + Presentation Builder will prepare polished copy, presentation, graph, greeting card, social post, or email-ready content.</p>
               <div class="summary-grid" aria-label="Selected project summary">
                 <div class="summary-box">
                   <span>Agent family</span>
-                  <strong id="summaryAgent">Gather & Extract</strong>
+                  <strong id="summaryAgent">Create & Polish</strong>
                 </div>
                 <div class="summary-box">
                   <span>Access</span>
@@ -2114,6 +2187,18 @@
               <div class="button-row" style="margin-top: 12px;">
                 <a class="btn primary" id="checkoutButton" href="https://buy.stripe.com/fZu00i2MD3lO9n79b92880D">Pay with Stripe</a>
                 <a class="btn" href="mailto:ian@webot.agency?subject=WeBot%20Studio%20Custom%20Access">Contact Us</a>
+              </div>
+            </article>
+
+            <article class="preview-card">
+              <span class="tag">Prepared tiers</span>
+              <h3>Platform account tiers are staged, not live.</h3>
+              <p>Future account pricing is prepared for Human, API-only, and Both access. Live checkout migration requires platform Stripe readback and activation before these tiers can be sold.</p>
+              <div class="tier-table" aria-label="Prepared platform account tiers">
+                <div class="tier-row"><strong>Access</strong><span>Light</span><span>Standard</span><span>Pro</span></div>
+                <div class="tier-row"><strong>Human</strong><span>$10</span><span>$20</span><span>$30</span></div>
+                <div class="tier-row"><strong>API-only</strong><span>$7</span><span>$14</span><span>$21</span></div>
+                <div class="tier-row"><strong>Both</strong><span>$15</span><span>$30</span><span>$45</span></div>
               </div>
             </article>
 
@@ -2174,7 +2259,7 @@
             <h3>What happens after intake</h3>
             <div class="timeline" aria-label="Customer project timeline">
               <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Received.</strong> Studio confirms the request and checks that the right agent family is selected.</span></div>
-              <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Preparing.</strong> A warm listener routes the job and posts the first dashboard checkpoint.</span></div>
+              <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Preparing.</strong> Studio confirms the route and posts the first dashboard checkpoint.</span></div>
               <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Working.</strong> The agent prepares the deliverable and status updates stay customer-friendly.</span></div>
               <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Lead review.</strong> A review pass checks accuracy, fit, formatting, and delivery readiness.</span></div>
               <div class="timeline-item"><span class="timeline-dot" aria-hidden="true">&#8203;</span><span><strong>Fresh-context review.</strong> A second pass reviews the work cold; technical work also gets engineer review.</span></div>
@@ -2218,7 +2303,7 @@
           <div class="dashboard-head">
             <div>
               <h3 id="dashboardTitle">June launch help</h3>
-              <p id="dashboardMeta">Gather & Extract - Starter - next update after double review</p>
+              <p id="dashboardMeta">Create & Polish - Starter - next update after double review</p>
             </div>
             <span class="status-pill" id="dashboardStatus">Lead review active</span>
           </div>
@@ -2235,14 +2320,14 @@
               <h4>Agent Route</h4>
               <div class="kanban-card">
                 <strong>Route selected</strong>
-                <p id="routeCard">Web Scout + Doc Miner assigned.</p>
+                <p id="routeCard">Voice Maker + Presentation Builder assigned.</p>
               </div>
             </div>
             <div class="kanban-col">
               <h4>Agent Draft</h4>
               <div class="kanban-card">
                 <strong>Draft in progress</strong>
-                <p id="workCard">Preparing the first clean research pack.</p>
+                <p id="workCard">Preparing the first polished deliverable.</p>
               </div>
             </div>
             <div class="kanban-col">
@@ -2276,7 +2361,7 @@
             </article>
             <article class="preview-card">
               <h3>Deliverables</h3>
-              <p id="deliverableCard">Clean research pack, spreadsheet, source notes, or extracted document set.</p>
+              <p id="deliverableCard">Polished copy, presentation, graph, greeting card, social post, or email-ready content.</p>
             </article>
             <article class="preview-card">
               <h3>Timing</h3>
@@ -2330,6 +2415,18 @@
               <button class="scenario-card" type="button" data-scenario="brand">
                 <strong>Card and logo - Morgan</strong>
                 <span>Create a thank-you card message and small-business logo direction.</span>
+              </button>
+              <button class="scenario-card" type="button" data-scenario="media">
+                <strong>Media convert - Riley</strong>
+                <span>Turn text into MP3 audio, enhance photos, and clean up video transcript notes.</span>
+              </button>
+              <button class="scenario-card" type="button" data-scenario="growth">
+                <strong>SEO launch - Nina</strong>
+                <span>Improve SEO, marketing strategies, and a practical launch content plan.</span>
+              </button>
+              <button class="scenario-card" type="button" data-scenario="career">
+                <strong>Career prep - Leo</strong>
+                <span>Review a resume and prepare interview practice for a product role.</span>
               </button>
               <button class="scenario-card" type="button" data-scenario="decision">
                 <strong>Decision memo - Sam</strong>
@@ -2443,9 +2540,9 @@
     const gateFresh = document.getElementById("gateFresh");
 
     let selectedAgent = {
-      family: "Gather & Extract",
-      persona: "Web Scout + Doc Miner",
-      deliverable: "Clean research pack, spreadsheet, source notes, or extracted document set"
+      family: "Create & Polish",
+      persona: "Voice Maker + Presentation Builder",
+      deliverable: "Polished copy, presentation, graph, greeting card, social post, or email-ready content"
     };
 
     let selectedPlan = {
@@ -2543,6 +2640,42 @@
         expert: "Creative lead review applies; engineer review is not needed unless file automation is requested.",
         fresh: "Fresh-context pass checks that the message and brand direction work for the intended audience."
       },
+      media: {
+        title: "Media convert - Riley",
+        user: "Riley - course creator",
+        request: "Turn this welcome script into text to MP3 audio, enhance three photos, and clean up the video transcription notes.",
+        agent: "Media & Convert",
+        routeReason: "Text to MP3 audio, photo enhancement, media conversion, and video transcription point to Media & Convert.",
+        deliverable: "MP3-ready narration notes, enhanced photo checklist, cleaned video transcription notes, and handoff details for final media files.",
+        reply: "I routed this to Media & Convert. I will prepare the audio handoff, photo enhancement notes, and cleaned transcript package before review.",
+        review: "Lead review checks file intent, wording, format expectations, and whether the media handoff is practical.",
+        expert: "Media review applies; engineer review is only added if a technical conversion script is requested.",
+        fresh: "Fresh-context pass checks that the media package can be used without extra explanation."
+      },
+      growth: {
+        title: "SEO launch - Nina",
+        user: "Nina - founder",
+        request: "Review my service page for SEO, build marketing strategies, and outline a two-week content plan.",
+        agent: "Growth & Market",
+        routeReason: "SEO, marketing strategies, service positioning, and content planning point to Growth & Market.",
+        deliverable: "SEO brief, positioning notes, marketing strategy, content plan, and next-step checklist.",
+        reply: "I routed this to Growth & Market. I will review the page, prepare SEO notes, shape the marketing strategy, and outline a practical content plan.",
+        review: "Lead review checks clarity, audience fit, search intent, and whether the plan is actionable.",
+        expert: "Growth review applies; engineer review is only added if site implementation is requested.",
+        fresh: "Fresh-context pass checks whether the recommendations still match the page and market."
+      },
+      career: {
+        title: "Career prep - Leo",
+        user: "Leo - job seeker",
+        request: "Review my resume, improve the summary, and prepare interview practice for a product operations role.",
+        agent: "Career & Prep",
+        routeReason: "Resume review, interview preparation, role research, and practice questions point to Career & Prep.",
+        deliverable: "Resume review notes, improved summary, interview preparation plan, practice questions, and role-fit talking points.",
+        reply: "I routed this to Career & Prep. I will review the resume, polish the summary, and prepare interview practice notes before review.",
+        review: "Lead review checks clarity, role fit, accuracy, and whether the preparation is specific enough to use.",
+        expert: "Career review applies; engineer review is not needed unless a technical portfolio is part of the request.",
+        fresh: "Fresh-context pass checks whether the resume and interview notes make sense to a new reviewer."
+      },
       decision: {
         title: "Decision memo - Sam",
         user: "Sam - buyer",
@@ -2630,20 +2763,29 @@
 
     function routeAgentFamily(text) {
       const value = String(text || "").toLowerCase();
-      if (/(vacation|itinerary|date night|anniversary|business get|workshop|dinner|road trip|route|packing|reservation|travel|trip)/.test(value)) {
-        return "Plan & Itinerary";
-      }
-      if (/(scrape|extract|pdf|ocr|invoice|csv|spreadsheet cleanup|table|source notes)/.test(value)) {
-        return "Gather & Extract";
-      }
-      if (/(card|logo|brand|social|copy|message|story|email|design)/.test(value)) {
+      if (/(presentation|graph|card|logo|brand|social|copy|message|story|email|design)/.test(value)) {
         return "Create & Polish";
       }
-      if (/(code|script|automation|formula|engineer|runbook|workflow)/.test(value)) {
+      if (/(mp3|audio|photo|image enhancement|enhance|video transcription|media|convert|conversion)/.test(value)) {
+        return "Media & Convert";
+      }
+      if (/(scrape|extract|pdf|ocr|invoice|csv|spreadsheet cleanup|table|source notes|transcription|transcribe)/.test(value)) {
+        return "Gather & Extract";
+      }
+      if (/(code|script|automation|formula|engineer|runbook|workflow|web development|website|site build)/.test(value)) {
         return "Build & Automate";
+      }
+      if (/(seo|marketing|campaign|content plan|launch|growth|positioning)/.test(value)) {
+        return "Growth & Market";
       }
       if (/(research|compare|vendor|decision|memo|recommend|brief)/.test(value)) {
         return "Review & Decide";
+      }
+      if (/(resume|interview|career|cover letter|job|role|application)/.test(value)) {
+        return "Career & Prep";
+      }
+      if (/(vacation|itinerary|date night|anniversary|business get|workshop|dinner|road trip|route|packing|reservation|travel|trip)/.test(value)) {
+        return "Plan & Itinerary";
       }
       return selectedAgent.family;
     }

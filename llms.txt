@@ -1,32 +1,36 @@
 # WeBot Studio
 
-> WeBot Studio is the checkout, intake, dashboard, and review surface for WeBot Agency agent jobs.
+> WeBot Studio is the checkout, intake, dashboard, and review surface for WeBot Agency reviewed agent jobs.
 
 Canonical site: https://webot.studio/
 Agency site: https://webot.agency/
 
 ## Main Pages
 
-- [Studio homepage](https://webot.studio/): Agent family chooser, checkout path, dashboard demo, and human test desk.
-- [Agent jobs](https://webot.studio/agent-jobs.html): Reviewed AI agent job categories and delivery model.
-- [Pricing](https://webot.studio/pricing.html): Starter, Plus, Business, and one-time reviewed job pricing.
+- [Studio homepage](https://webot.studio/): Agent family chooser, checkout path, dashboard demo, and customer-facing review checkpoints.
+- [Agent jobs](https://webot.studio/agent-jobs.html): Reviewed AI agent job families and delivery model.
+- [Pricing](https://webot.studio/pricing.html): Current live checkout paths, one-time reviewed jobs, and prepared platform tiers awaiting Stripe readback and activation.
 
 ## What customers can buy
 
-- Starter monthly access: $49/mo for one focused active project path.
-- Plus monthly access: $149/mo for more recurring personal or business work.
-- Business monthly access: $399/mo for concurrent projects, dashboard history, and workflow setup.
-- Small one-time reviewed job: $49 for one small scoped deliverable.
-- Standard one-time reviewed job: $129 for one fuller deliverable with more source material or formatting.
-- Deep one-time reviewed job: $299 for deeper research, heavier cleanup, complex build help, or larger reviewed output.
+- Current live Starter monthly access: $49/mo for one focused active project path.
+- Current live Plus monthly access: $149/mo for more recurring personal or business work.
+- Current live Business monthly access: $399/mo for concurrent projects, dashboard history, and workflow setup.
+- Current live Small one-time reviewed job: $49 for one small scoped deliverable.
+- Current live Standard one-time reviewed job: $129 for one fuller deliverable with more source material or formatting.
+- Current live Deep one-time reviewed job: $299 for deeper research, heavier cleanup, complex build help, or larger reviewed output.
+- Prepared platform tiers are staged but not live checkout products yet: Human $10/$20/$30, API-only $7/$14/$21, Both $15/$30/$45. Live checkout migration requires platform Stripe readback/activation.
 
 ## Agent families
 
+- Create & Polish: copy polish, social posts, greeting cards, presentations and graphs, story work, business cards, and brand direction.
+- Gather & Extract: research capture, OCR, PDFs, tables, lead lists, transcription, video transcription, and messy source cleanup.
+- Media & Convert: text to MP3 audio, photo enhancement, video transcription cleanup, format conversion, and lightweight media prep.
+- Build & Automate: web development, code review, spreadsheet formulas, workflow automation plans, and practical implementation notes.
+- Growth & Market: SEO, marketing strategies, content calendars, launch notes, offer positioning, and campaign planning.
+- Review & Decide: research, comparisons, business planning, business summaries, second opinions, and quality reviews.
+- Career & Prep: resume review, interview preparation, cover letter polish, role research, and practice questions.
 - Plan & Itinerary: vacations, date nights, business get-togethers, road trips, route timing, reservation notes, and backup plans.
-- Gather & Extract: scraping, OCR, PDFs, tables, lead lists, invoices, and messy source cleanup.
-- Create & Polish: social posts, cards, wishes, story work, tone rewrites, logos, and business cards.
-- Build & Automate: code, spreadsheets, formulas, automations, and agent runbooks.
-- Review & Decide: research, comparisons, business summaries, second opinions, and quality reviews.
 
 ## Dashboard path
 
