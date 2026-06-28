@@ -5,6 +5,12 @@
 Canonical site: https://webot.studio/
 Agency site: https://webot.agency/
 
+## Main Pages
+
+- [Studio homepage](https://webot.studio/): Agent family chooser, checkout path, dashboard demo, and human test desk.
+- [Agent jobs](https://webot.studio/agent-jobs.html): Reviewed AI agent job categories and delivery model.
+- [Pricing](https://webot.studio/pricing.html): Starter, Plus, Business, and one-time reviewed job pricing.
+
 ## What customers can buy
 
 - Starter monthly access: $49/mo for one focused active project path.
@@ -25,3 +31,7 @@ Agency site: https://webot.agency/
 ## Dashboard path
 
 Paid customer work moves through payment + intake, agent route, agent draft, lead review, fresh-context review, customer approval, and complete delivery.
+
+## Google Search Setup
+
+The canonical sitemap is https://webot.studio/sitemap.xml. Search Console verification and sitemap submission require access to the verified Google property; do not claim submission until Search Console confirms it.

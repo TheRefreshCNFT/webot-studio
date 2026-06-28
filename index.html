@@ -6,25 +6,48 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <title>WeBot Studio | AI Agent Jobs, One-Time Deliverables & Reviewed Dashboards</title>
-  <meta name="description" content="WeBot Studio helps customers choose a WeBot agent for itinerary planning, vacations, date nights, business get-togethers, road trips, documents, code, cards, research, and reviewed delivery through a clear customer dashboard.">
+  <title>WeBot Studio | Reviewed AI Agent Jobs</title>
+  <meta name="description" content="WeBot Studio sells monthly access and one-time reviewed AI agent jobs for itineraries, documents, code, cards, research, and decisions.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#090b10">
   <link rel="canonical" href="https://webot.studio/">
-  <meta property="og:title" content="WeBot Studio | Pick an Agent, Pay, Track Reviewed Work">
-  <meta property="og:description" content="Choose an agent family, pick access, open intake, and watch itinerary plans, documents, code, cards, research, and other jobs move toward reviewed delivery.">
+  <meta property="og:title" content="WeBot Studio | Reviewed AI Agent Jobs">
+  <meta property="og:description" content="Choose monthly access or one-time reviewed AI agent jobs. Follow intake, draft, review, customer approval, and final delivery in Studio.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://webot.studio/">
   <meta property="og:site_name" content="WeBot Studio">
-  <meta property="og:image" content="https://webot.studio/apple-touch-icon.png">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="WeBot Studio | AI Agent Jobs With Reviewed Delivery">
-  <meta name="twitter:description" content="Monthly access and one-time AI agent jobs for itineraries, documents, code, cards, research, and decisions.">
-  <meta name="twitter:image" content="https://webot.studio/apple-touch-icon.png">
+  <meta property="og:image" content="https://webot.studio/assets/og-webot-studio.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WeBot Studio | Reviewed AI Agent Jobs">
+  <meta name="twitter:description" content="Monthly access and one-time reviewed AI agent jobs for itineraries, documents, code, cards, research, and decisions.">
+  <meta name="twitter:image" content="https://webot.studio/assets/og-webot-studio.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://webot.agency/#organization",
+        "name": "WeBot Agency",
+        "url": "https://webot.agency/",
+        "logo": "https://webot.agency/apple-touch-icon.png",
+        "email": "hello@webot.agency",
+        "sameAs": [
+          "https://x.com/webotagency",
+          "https://www.linkedin.com/company/webotagency",
+          "https://github.com/TheRefreshCNFT"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://webot.studio/#website",
+        "url": "https://webot.studio/",
+        "name": "WeBot Studio",
+        "publisher": { "@id": "https://webot.agency/#organization" }
+      },
       {
         "@type": "WebApplication",
         "@id": "https://webot.studio/#app",
@@ -32,7 +55,9 @@
         "url": "https://webot.studio/",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
-        "description": "A customer-facing Studio for selecting reviewed WeBot agent work, paying through Stripe Checkout, opening intake, and following dashboard checkpoints."
+        "description": "A customer-facing Studio for selecting reviewed WeBot agent work, paying through Stripe Checkout, opening intake, and following dashboard checkpoints.",
+        "publisher": { "@id": "https://webot.agency/#organization" },
+        "offers": { "@id": "https://webot.studio/#services" }
       },
       {
         "@type": "WebPage",
@@ -40,13 +65,14 @@
         "url": "https://webot.studio/",
         "name": "WeBot Studio | AI Agent Jobs With Reviewed Delivery",
         "description": "Choose monthly access or one-time reviewed AI agent jobs, then follow the work through intake, routing, draft, lead review, fresh-context review, customer review, and delivery.",
+        "isPartOf": { "@id": "https://webot.studio/#website" },
         "about": { "@id": "https://webot.studio/#services" }
       },
       {
         "@type": "Service",
         "@id": "https://webot.studio/#services",
         "name": "WeBot Studio reviewed agent delivery",
-        "provider": { "@type": "Organization", "name": "WeBot Agency", "url": "https://webot.agency/" },
+        "provider": { "@id": "https://webot.agency/#organization" },
         "serviceType": "Reviewed AI agent delivery",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -1810,6 +1836,8 @@
       <div class="nav-links" id="navLinks">
         <a href="#agents">Agents</a>
         <a href="#access">Access</a>
+        <a href="agent-jobs.html">Agent Jobs</a>
+        <a href="pricing.html">Pricing</a>
         <a href="#intake">Intake</a>
         <a href="#dashboard">Dashboard</a>
         <a href="https://webot.agency">Agency</a>
@@ -2365,6 +2393,8 @@
       <p>(c) 2026 WeBot Agency, an F5 Company. We Bot You.</p>
       <div class="footer-links">
         <a href="https://webot.agency">webot.agency</a>
+        <a href="agent-jobs.html">Agent jobs</a>
+        <a href="pricing.html">Pricing</a>
         <a href="https://webot.buzz">webot.buzz</a>
         <a href="mailto:ian@webot.agency?subject=WeBot%20Studio%20Inquiry">Contact</a>
       </div>
