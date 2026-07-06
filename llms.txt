@@ -9,7 +9,7 @@ Agency site: https://webot.agency/
 
 - [Studio homepage](https://webot.studio/): Agent family chooser, checkout path, dashboard demo, and customer-facing review checkpoints.
 - [Agent jobs](https://webot.studio/agent-jobs.html): Reviewed AI agent job families and delivery model.
-- [Pricing](https://webot.studio/pricing.html): Current live checkout paths, one-time reviewed jobs, and prepared platform tiers awaiting Stripe readback and activation.
+- [Pricing](https://webot.studio/pricing.html): Current live checkout paths, one-time reviewed jobs, and live monthly platform account tiers starting with the $5 Pilot Test.
 
 ## What customers can buy
 
@@ -19,7 +19,7 @@ Agency site: https://webot.agency/
 - Current live Small one-time reviewed job: $49 for one small scoped deliverable.
 - Current live Standard one-time reviewed job: $129 for one fuller deliverable with more source material or formatting.
 - Current live Deep one-time reviewed job: $299 for deeper research, heavier cleanup, complex build help, or larger reviewed output.
-- Prepared platform tiers are staged but not live checkout products yet: Human $10/$20/$30, API-only $7/$14/$21, Both $15/$30/$45. Live checkout migration requires platform Stripe readback/activation.
+- Platform account tiers are live with Stripe checkout at https://app.webot.studio: Pilot Test $5, Human $10/$20/$30, API-only $7/$14/$21, Both $15/$30/$45.
 
 ## Agent families
 
