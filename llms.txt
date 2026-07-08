@@ -9,17 +9,16 @@ Agency site: https://webot.agency/
 
 - [Studio homepage](https://webot.studio/): Agent family chooser, checkout path, dashboard demo, and customer-facing review checkpoints.
 - [Agent jobs](https://webot.studio/agent-jobs.html): Reviewed AI agent job families and delivery model.
-- [Pricing](https://webot.studio/pricing.html): Current live checkout paths, one-time reviewed jobs, and live monthly platform account tiers starting with the $5 Pilot Test.
+- [Pricing](https://webot.studio/pricing.html): Live monthly platform subscription tiers starting with the $7.50 Pilot Test, with 50% off the first 2 months at launch.
 
 ## What customers can buy
 
-- Current live Starter monthly access: $49/mo for one focused active project path.
-- Current live Plus monthly access: $149/mo for more recurring personal or business work.
-- Current live Business monthly access: $399/mo for concurrent projects, dashboard history, and workflow setup.
-- Current live Small one-time reviewed job: $49 for one small scoped deliverable.
-- Current live Standard one-time reviewed job: $129 for one fuller deliverable with more source material or formatting.
-- Current live Deep one-time reviewed job: $299 for deeper research, heavier cleanup, multi-source extraction, or larger reviewed output.
-- Platform account tiers are live with Stripe checkout at https://app.webot.studio: Pilot Test $5, Human $10/$20/$30, API-only $7/$14/$21, Both $15/$30/$45.
+- Pilot Test: $7.50/mo for 25 reviewed jobs per month — the low-commitment way to try the studio.
+- Dashboard access: $15/$30/$45 per month for 10/25/50 reviewed jobs per month.
+- API-only access: $10.50/$21/$31.50 per month.
+- Both (Dashboard + API) access: $22.50/$45/$67.50 per month.
+- Launch offer: 50% off the first 2 months on every tier, applied automatically at Stripe checkout.
+- Subscribe by signing in at https://app.webot.studio/login, or use the live Stripe checkout links on the pricing page.
 
 ## Agent families
 
