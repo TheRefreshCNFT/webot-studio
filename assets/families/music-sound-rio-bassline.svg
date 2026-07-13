@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2133" role="img" aria-labelledby="title desc">
+  <title id="title">Music and Sound production workspace</title>
+  <desc id="desc">An abstract teal and amber sound stage with a mixing console and layered waveform.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07141c"/><stop offset="1" stop-color="#102536"/></linearGradient>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#31e6c1"/><stop offset=".55" stop-color="#5ad7ff"/><stop offset="1" stop-color="#f4b34a"/></linearGradient>
+  </defs>
+  <rect width="1600" height="2133" fill="url(#bg)"/>
+  <circle cx="800" cy="650" r="430" fill="#0c2430" stroke="#31e6c1" stroke-opacity=".28" stroke-width="10"/>
+  <g fill="none" stroke="url(#wave)" stroke-linecap="round">
+    <path d="M180 760h150l55-180 90 430 95-610 105 720 100-900 110 780 95-520 85 330 70-150h145" stroke-width="28"/>
+    <path d="M220 880h190l70-150 95 300 105-500 95 570 110-420 90 250 75-90h330" stroke-width="13" opacity=".5"/>
+  </g>
+  <rect x="170" y="1320" width="1260" height="520" rx="58" fill="#091119" stroke="#5ad7ff" stroke-opacity=".25" stroke-width="8"/>
+  <g fill="#132c38" stroke="#31e6c1" stroke-width="6">
+    <rect x="250" y="1410" width="180" height="330" rx="28"/><rect x="490" y="1410" width="180" height="330" rx="28"/><rect x="730" y="1410" width="180" height="330" rx="28"/><rect x="970" y="1410" width="180" height="330" rx="28"/><rect x="1210" y="1410" width="140" height="330" rx="28"/>
+  </g>
+  <g fill="#f4b34a"><circle cx="340" cy="1490" r="26"/><circle cx="580" cy="1600" r="26"/><circle cx="820" cy="1515" r="26"/><circle cx="1060" cy="1660" r="26"/><circle cx="1280" cy="1550" r="26"/></g>
+</svg>

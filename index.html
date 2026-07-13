@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <title>WeBot Studio | Reviewed AI Agent Jobs</title>
-  <meta name="description" content="WeBot Studio sells monthly platform subscription tiers for reviewed AI agent jobs across four families: Create &amp; Design, Documents &amp; Data, Research, and Voice &amp; Audio.">
+  <meta name="description" content="WeBot Studio sells monthly platform subscription tiers for reviewed AI agent jobs across five families: Create &amp; Design, Music &amp; Sound, Voice &amp; Audio, Documents &amp; Data, and Research.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#090b10">
   <link rel="canonical" href="https://webot.studio/">
@@ -22,7 +22,7 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="WeBot Studio | Reviewed AI Agent Jobs">
-  <meta name="twitter:description" content="Monthly subscription tiers for reviewed AI agent jobs covering image and design work, documents and data, research briefs, and voice and audio.">
+  <meta name="twitter:description" content="Monthly subscription tiers for reviewed AI agent jobs covering design, music and sound, voice and audio, documents and data, and research.">
   <meta name="twitter:image" content="https://webot.studio/assets/og-webot-studio.png">
   <script type="application/ld+json">
   {
@@ -63,7 +63,7 @@
         "@id": "https://webot.studio/#webpage",
         "url": "https://webot.studio/",
         "name": "WeBot Studio | AI Agent Jobs With Reviewed Delivery",
-        "description": "Choose a monthly platform subscription tier for reviewed AI agent jobs across Create & Design, Documents & Data, Research, and Voice & Audio, then follow the work through intake, routing, draft, lead review, customer review, and delivery.",
+        "description": "Choose a monthly platform subscription tier for reviewed AI agent jobs across Create & Design, Music & Sound, Voice & Audio, Documents & Data, and Research, then follow the work through intake, routing, draft, lead review, customer review, and delivery.",
         "isPartOf": { "@id": "https://webot.studio/#website" },
         "about": { "@id": "https://webot.studio/#services" }
       },
@@ -1920,7 +1920,7 @@
         <div class="hero-copy">
           <p class="eyebrow">WeBot Studio</p>
           <h1><span>Pick an agent.</span> <span>Watch the work</span> <span>move.</span></h1>
-          <p class="lead">Choose the agent family for the job: Create &amp; Design for images, logos, cards, and creative writing; Documents &amp; Data for PDFs, OCR, extraction, and cleanup; Research for sourced briefs and comparisons; Voice &amp; Audio for voice generation, transcription, and audio work. Pick the subscription tier that fits, pay through Stripe Checkout, and land in a calm dashboard that shows customer-facing checkpoints.</p>
+        <p class="lead">Choose the agent family for the job: Create &amp; Design for images, logos, cards, and creative writing; Music &amp; Sound for songs, beats, samples, mastering, and MIDI; Voice &amp; Audio for voice generation, cloning, transcription, and cleanup; Documents &amp; Data for PDFs, OCR, extraction, and spreadsheets; or Research for sourced briefs and comparisons. Pick the subscription tier that fits, pay through Stripe Checkout, and follow customer-facing checkpoints in the dashboard.</p>
           <div class="hero-actions">
             <a class="btn primary" href="#agents">Choose Your Agent</a>
             <a class="btn secondary" href="#dashboard">See Dashboard</a>
@@ -2035,6 +2035,21 @@
               <li>Text to MP3 voices</li>
               <li>Voice cloning</li>
               <li>Transcription</li>
+            </ul>
+            <button class="card-action agent-select" type="button" aria-pressed="false">Select</button>
+          </article>
+
+          <article class="agent-card" role="listitem" data-agent="Music & Sound" data-persona="Rio Bassline, Music Production Lead" data-deliverable="Master WAV and MP3 files, stems, MIDI when requested, samples, sound effects, and a delivery manifest">
+            <figure class="family-portrait">
+              <img src="assets/families/music-sound-rio-bassline.svg" alt="Rio Bassline's Music & Sound production workspace with a waveform and mixing console." width="1600" height="2133" loading="lazy">
+            </figure>
+            <h3>Music & Sound</h3>
+            <p class="family-persona">Rio Bassline / Music Production Lead</p>
+            <p>Original songs from your lyrics, beats and backing tracks, samples and sound design, mastering, and MIDI packages for your DAW.</p>
+            <ul>
+              <li>Lyrics to songs and beats</li>
+              <li>Samples and sound design</li>
+              <li>Mastering and MIDI packages</li>
             </ul>
             <button class="card-action agent-select" type="button" aria-pressed="false">Select</button>
           </article>
@@ -2681,7 +2696,10 @@
 
     function routeAgentFamily(text) {
       const value = String(text || "").toLowerCase();
-      if (/(mp3|audio|voice|speech|narration|clone|transcribe|transcription|podcast|sound)/.test(value)) {
+      if (/(music|song|lyrics|beat|instrumental|backing track|sample|sound design|mastering|midi|daw)/.test(value)) {
+        return "Music & Sound";
+      }
+      if (/(mp3|audio|voice|speech|narration|clone|transcribe|transcription|podcast)/.test(value)) {
         return "Voice & Audio";
       }
       if (/(image|logo|card|social|visual|illustration|upscale|enhance|art|design|story|poem|creative writing|writing)/.test(value)) {
