@@ -23,9 +23,10 @@ Agency site: https://webot.agency/
 ## Agent families
 
 - Create & Design: custom image generation, image upscaling and enhancement, logo concepts, greeting cards and social visuals, and creative writing of all types.
+- Music & Sound: original songs from customer lyrics, beats and backing tracks, samples and sound design, mastering, and MIDI delivery packages.
+- Voice & Audio: text-to-MP3 voice generation, authorized voice cloning from a customer sample, audio and video transcription, and audio cleanup and format conversion.
 - Documents & Data: PDF creation, editing, and forms, OCR and scanned-document cleanup, scraping and structured data extraction, and spreadsheet and invoice cleanup.
 - Research: website research and source pulls, research and comparison briefs, and fact-check and evidence packs built on checkable sources.
-- Voice & Audio: text-to-MP3 voice generation, voice cloning from a customer sample, audio and video transcription, and audio cleanup and format conversion.
 
 ## Dashboard path
 
